@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d725412-5d1e-4c6a-a6b5-6d3cb2e8a6a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-AffLexNegLex-v1.0/HS-AFFLEX-NEGLEX-bigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-AffLexNegLex-v1.0/HS-AFFLEX-NEGLEX-unigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-AffLexNegLex-v1.0/Paper1_NRC_Hashtag_Sentiment_AffLexNegLex.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-AffLexNegLex-v1.0/Paper2_NRC_Hashtag_Sentiment_AffLexNegLex.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-AffLexNegLex-v1.0/Paper3_NRC_Hashtag_Sentiment_AffLexNegLex.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-AffLexNegLex-v1.0/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/HS-bigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/HS-pairs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/HS-unigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/Paper1_NRC_Hashtag_Sentiment_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/Paper2_NRC_Hashtag_Sentiment_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/Paper3_NRC_Hashtag_Sentiment_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/NRC-Hashtag-Sentiment-Lexicon-v1.0/sentiment-hashtags.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/Sentiment140-Lexicon-v0.1/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/Sentiment140-Lexicon-v0.1/bigrams-pmilexicon.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/Sentiment140-Lexicon-v0.1/pairs-pmilexicon.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Large-coverage Automatic Tweet Sentiment Lexicons/Sentiment140-Lexicon-v0.1/unigrams-pmilexicon.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/HuAndLiu/HuLiuNegative.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/HuAndLiu/HuLiuPositive.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/NRC-Emotion-Lexicon-v0.92/NRC-emotion-lexicon-wordlevel-alphabetized-v0.92.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/NRC-Emotion-Lexicon-v0.92/NRCEmotionsNegative.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/NRC-Emotion-Lexicon-v0.92/NRCEmotionsPositive.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/NRC-Emotion-Lexicon-v0.92/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/NRC-Emotion-Lexicon-Senselevel-v0.92.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/NRC-Emotion-Lexicon-v0.92-In105Languages-Nov2017Translations.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/Older Versions/NRC-Emotion-Lexicon-v0.92-InManyLanguages.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/Older Versions/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/Paper1_NRC_Emotion_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/Paper2_NRC_Emotion_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/NRC-Emotion-Lexicon-v0.92/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/opinion-lexicon-English/negative-words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/opinion-lexicon-English/positive-words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/subjectivity_clues_hltemnlp05/subjclueslen1-HLTEMNLP05.README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/Original/subjectivity_clues_hltemnlp05/subjclueslen1-HLTEMNLP05.tff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/SentiWordNet/SentiWordNet_3.0.0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/subjectivity_clues_hltemnlp05/DCU_MPQA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/subjectivity_clues_hltemnlp05/SubjNegative.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/subjectivity_clues_hltemnlp05/SubjPositive.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/subjectivity_clues_hltemnlp05/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/subjectivity_clues_hltemnlp05/extract.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/subjectivity_clues_hltemnlp05/subjclueslen1-HLTEMNLP05.README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Manually Created Sentiment Lexicons/subjectivity_clues_hltemnlp05/subjclueslen1-HLTEMNLP05.tff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-AffLexNegLex-v1.0/Emoticon-AFFLEX-NEGLEX-bigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-AffLexNegLex-v1.0/Emoticon-AFFLEX-NEGLEX-unigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-AffLexNegLex-v1.0/Paper1_NRC_Emoticon_AffLexNegLex.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-AffLexNegLex-v1.0/Paper2_NRC_Emoticon_AffLexNegLex.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-AffLexNegLex-v1.0/Paper3_NRC_Emoticon_AffLexNegLex.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-AffLexNegLex-v1.0/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-Lexicon-v1.0/Emoticon-bigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-Lexicon-v1.0/Emoticon-pairs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-Lexicon-v1.0/Emoticon-unigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-Lexicon-v1.0/Paper1_NRC_Emoticon_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-Lexicon-v1.0/Paper2_NRC_Emoticon_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-Lexicon-v1.0/Paper3_NRC_Emoticon_Lexicon.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/NRC-Emoticon-Lexicon-v1.0/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Specific Generated Lexicons/Amazon-laptop-electronics-reviews/Amazon-laptops-electronics-reviews-AFFLEX-NEGLEX-bigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Specific Generated Lexicons/Amazon-laptop-electronics-reviews/Amazon-laptops-electronics-reviews-AFFLEX-NEGLEX-unigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Specific Generated Lexicons/Amazon-laptop-electronics-reviews/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Specific Generated Lexicons/Yelp-restaurant-reviews/Yelp-restaurant-reviews-AFFLEX-NEGLEX-bigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Specific Generated Lexicons/Yelp-restaurant-reviews/Yelp-restaurant-reviews-AFFLEX-NEGLEX-unigrams.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lexicon/Specific Generated Lexicons/Yelp-restaurant-reviews/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cluster_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/laptops/parsed_data/lap.plk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/rest/parsed_data/embed.plk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/stopwords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hyperopt_svm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lexicon_features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stanford_nlp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_utils.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/absa_svm$dataset.coverage" NAME="dataset Coverage Results" MODIFIED="1571206699855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$main.coverage" NAME="main Coverage Results" MODIFIED="1571207574882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$chi.coverage" NAME="chi Coverage Results" MODIFIED="1571206578884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$cluster_utils.coverage" NAME="cluster_utils Coverage Results" MODIFIED="1571039616618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$lexicon_features.coverage" NAME="lexicon_features Coverage Results" MODIFIED="1571040096002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$stanford_nlp.coverage" NAME="stanford_nlp Coverage Results" MODIFIED="1571041430198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$hyperopt_svm.coverage" NAME="hyperopt_svm Coverage Results" MODIFIED="1571042367791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$file_utils.coverage" NAME="file_utils Coverage Results" MODIFIED="1570600230294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/absa_svm$test.coverage" NAME="test Coverage Results" MODIFIED="1571195736312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataset.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1408">
+              <caret line="79" column="26" lean-forward="true" selection-start-line="79" selection-start-column="26" selection-end-line="80" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hyperopt_svm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2002">
+              <caret line="91" column="73" selection-start-line="91" selection-start-column="73" selection-end-line="91" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ori_text</find>
+      <find>pickle</find>
+      <find>res</find>
+      <find>sure</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/lexicon_features.py" />
+        <option value="$PROJECT_DIR$/cluster_utils.py" />
+        <option value="$PROJECT_DIR$/stanford_nlp.py" />
+        <option value="$PROJECT_DIR$/datasets/rest/aspect_cluster/train/cluster_1" />
+        <option value="$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_1" />
+        <option value="$PROJECT_DIR$/datasets/rest/optimized_result5/cluster_3" />
+        <option value="$PROJECT_DIR$/hyperopt_svm.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/file_utils.py" />
+        <option value="$PROJECT_DIR$/chi.py" />
+        <option value="$PROJECT_DIR$/datasets/stopwords.txt" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dataset.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1017" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="absa-svm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="absa-svm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="absa-svm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="absa-svm" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="absa-svm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="absa-svm" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="absa-svm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="absa-svm" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+              <item name="optimized_result" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="absa-svm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="absa-svm" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+              <item name="optimized_result4" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../absa" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/datasets/rest/parsed_data" />
+      <recent name="$PROJECT_DIR$/datasets/laptops/parsed_data" />
+      <recent name="$PROJECT_DIR$/datasets/laptops" />
+      <recent name="$PROJECT_DIR$/datasets/rest" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="chi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="absa-svm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="absa-svm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataset.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hyperopt_svm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="absa-svm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hyperopt_svm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="absa-svm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="absa-svm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.dataset" />
+        <item itemvalue="Python.chi" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.hyperopt_svm" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d725412-5d1e-4c6a-a6b5-6d3cb2e8a6a6" name="Default Changelist" comment="" />
+      <created>1570598928211</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570598928211</updated>
+      <workItem from="1570598929293" duration="220000" />
+      <workItem from="1570599162002" duration="10329000" />
+      <workItem from="1570626992420" duration="2780000" />
+      <workItem from="1570946504113" duration="75231000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="88560000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1920" height="1017" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16932908" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840257" weight="0.4951246" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.496208" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50159746" side_tool="true" weight="0.5579632" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946752" weight="0.46695557" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32960597" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cluster_utils.py</url>
+          <line>158</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/stanford_nlp.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result/cluster_5">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result/cluster_4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="16" column="68" lean-forward="true" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result2/cluster_0">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/aspect_cluster/test/cluster_0">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result/cluster_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/aspect_cluster/train/cluster_7">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1606">
+          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_0">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="53" lean-forward="true" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_2">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_3">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_5">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_6">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_7">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_7">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_8">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_8">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_9">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_9">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/aspect_cluster/train/cluster_3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2161" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/aspect_cluster/train/cluster_2">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/aspect_cluster/train/cluster_0">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/aspect_cluster/train/cluster_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-154">
+          <caret line="328" selection-start-line="328" selection-end-line="328" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/aspect_cluster/train/cluster_9">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-396" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stanford_nlp.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cluster_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lexicon_features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-711">
+          <caret line="211" column="51" selection-start-line="211" selection-start-column="42" selection-end-line="211" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib64/python3.6/site-packages/sklearn/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="528" column="8" selection-start-line="528" selection-start-column="8" selection-end-line="528" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib64/python3.6/site-packages/sklearn/preprocessing/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_5">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_6">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_2">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result5/cluster_0">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result5/cluster_3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="64" selection-start-column="64" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result5/cluster_2">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///usr/local/lib64/python3.6/site-packages/sklearn/preprocessing/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1864">
+          <caret line="1708" column="8" selection-start-line="1708" selection-start-column="8" selection-end-line="1708" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result3/cluster_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result2/cluster_1">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result5/cluster_1">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/stopwords.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="380" column="2" selection-start-line="380" selection-start-column="2" selection-end-line="380" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result4/cluster_0">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" lean-forward="true" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/rest/optimized_result/cluster_0">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hyperopt_svm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2002">
+          <caret line="91" column="73" selection-start-line="91" selection-start-column="73" selection-end-line="91" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="79" column="26" lean-forward="true" selection-start-line="79" selection-start-column="26" selection-end-line="80" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

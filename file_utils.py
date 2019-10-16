@@ -14,20 +14,22 @@ def write_list(file_path, list2write):
 def remove_dirs(dir):
     if os.path.exists(dir):
         shutil.rmtree(dir)
-
-    print('%s removed...' % dir)
+        print('%s removed...' % dir)
 
 
 def make_dirs(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
-
-    print('%s created...' % dir)
+        print('%s created...' % dir)
 
 
 def clear_folder(folder_path):
     os.removedirs(folder_path)
     os.makedirs(folder_path)
+
+
+def stop_words(file_path='datasets/stopwords.txt'):
+    return set(read_as_list(file_path))
 
 
 
@@ -39,4 +41,3 @@ if __name__ == '__main__':
     make_dirs('a/b/c')
     make_dirs('a/b/d')
     remove_dirs('a/b/c')
-
