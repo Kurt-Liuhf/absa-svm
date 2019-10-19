@@ -17,10 +17,10 @@ stop_words = stop_words()
 
 
 def generate_vectors(train_data, test_data):
-    # x_train_tfidf, x_test_tfidf = dependent_features_vectors([s.words for s in train_data],
-    #                                                          [s.words for s in test_data])
-    x_train_tfidf, x_test_tfidf = bow_features_vectors([s.bow_words for s in train_data],
-                                                       [s.bow_words for s in test_data])
+    x_train_tfidf, x_test_tfidf = dependent_features_vectors([s.words for s in train_data],
+                                                             [s.words for s in test_data])
+    # x_train_tfidf, x_test_tfidf = bow_features_vectors([s.bow_words for s in train_data],
+    #                                                    [s.bow_words for s in test_data])
 
     x_train_sbow = np.asarray([s.sbow_vec for s in train_data])
     x_test_sbow = np.asarray([s.sbow_vec for s in test_data])
@@ -74,9 +74,9 @@ def lexicons_features_vectors(tokens, pos_tags, dependent_words=None):
         new_tags = []
         tmp_dw_set = set(dw.split())
         for w, t in zip(words, tags):
-            if w in tmp_dw_set:
-                new_words.append(w)
-                new_tags.append(t)
+            # if w in tmp_dw_set:
+            new_words.append(w)
+            new_tags.append(t)
         new_tokens.append(new_words)
         new_pos_tags.append(new_tags)
     return LexiconFeatureExtractor(new_tokens, new_pos_tags).vectors
@@ -101,7 +101,7 @@ def main():
     y_preds = []
     y_true = []
     # for aspect_id in aspect_labels:
-    for aspect_id in range(0, 10):
+    for aspect_id in range(4, 5):
         train_data, test_data = data.data_from_aspect(aspect_id)
         print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
               (aspect_id, len(train_data), len(test_data)))
@@ -114,7 +114,7 @@ def main():
         x_train = scaler.transform(x_train)
         x_test = scaler.transform(x_test)
         ht = HyperoptTuner(x_train, y_train, x_test, y_test, aspect_id, data.base_dir)
-        ht.tune_params(1000)
+        ht.tune_params(5000)
         y_preds.extend(ht.pred_results)
         y_true.extend(y_test)
     evaluation(y_preds, y_true)

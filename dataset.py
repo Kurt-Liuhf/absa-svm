@@ -170,4 +170,4 @@ class Sample(object):
 
 if __name__ == '__main__':
     base_dir = 'datasets/rest/'
-    data = Dataset(base_dir, is_preprocessed=True)
+    data = Dataset(base_dir, is_preprocessed=False)

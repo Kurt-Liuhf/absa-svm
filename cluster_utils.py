@@ -4,6 +4,7 @@ from dataset import *
 from file_utils import *
 import pickle
 import os
+from file_utils import *
 
 
 class Cluster(object):
@@ -95,6 +96,7 @@ class WordsCluster(Cluster):
         self.test_vectors = []
         self.aspect_words = {}   # feature words belong to each aspect
         self.cluster_models = {}  # cluster models for each aspect
+        self.stopwords = stop_words()
 
         self.load_embed_dict()
         self.get_aspect_words()
@@ -108,7 +110,8 @@ class WordsCluster(Cluster):
     def get_aspect_words(self):
         for sample in self.dataset.train_data:
             self.aspect_words.setdefault(sample.aspect_cluster, [])
-            self.aspect_words[sample.aspect_cluster].extend(sample.words)
+            new_words = [w for w in sample.words if w not in self.stopwords]
+            self.aspect_words[sample.aspect_cluster].extend(new_words)
 
         # remove duplicated words
         for key in self.aspect_words.keys():
@@ -135,8 +138,9 @@ class WordsCluster(Cluster):
         for sample in self.dataset.train_data:
             cluster_id = sample.aspect_cluster
             tmp_vec = [0 for _ in range(self.n_clusters)]
-            if len(sample.words) > 0:
-                vecs = self.wordslist2vec(sample.words)
+            tmp_words = [w for w in sample.words if w not in self.stopwords]
+            if len(tmp_words) > 0:
+                vecs = self.wordslist2vec(tmp_words)
                 labels_ = self.cluster_models[cluster_id].predict(vecs)
                 for x in labels_:
                     tmp_vec[x] += 1
@@ -148,8 +152,10 @@ class WordsCluster(Cluster):
         for sample in self.dataset.test_data:
             cluster_id = sample.aspect_cluster
             tmp_vec = [0 for _ in range(self.n_clusters)]
-            if len(sample.words) > 0:
-                vecs = self.wordslist2vec(sample.words)
+            tmp_words = [w for w in sample.words if w not in self.stopwords]
+            if len(tmp_words) > 0:
+                # vecs = self.wordslist2vec(sample.words)
+                vecs = self.wordslist2vec(tmp_words)
                 labels_ = self.cluster_models[cluster_id].predict(vecs)
                 for x in labels_:
                     tmp_vec[x] += 1
