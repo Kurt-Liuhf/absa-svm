@@ -1,5 +1,4 @@
 from collections import Counter
-from nltk.corpus import stopwords
 from dataset import *
 from file_utils import *
 

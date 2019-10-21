@@ -8,7 +8,7 @@ import os
 
 class HyperoptTuner(object):
 
-    def __init__(self, train_X, train_y, test_X, test_y, cluster_id, base_dir):
+    def __init__(self, train_X=None, train_y=None, test_X=None, test_y=None, cluster_id=None, base_dir=None):
         self.train_X = train_X
         self.train_y = train_y
         self.test_X = test_X
@@ -23,6 +23,7 @@ class HyperoptTuner(object):
         self.pred_results = []
         self.elapsed_time = None
         self.base_dir = base_dir
+        self.correct = 0
 
     # pre-set parameters space
     def _preset_ps(self):
@@ -82,6 +83,7 @@ class HyperoptTuner(object):
             for pred_y, true_y in zip(pred, self.test_y):
                 if pred_y == true_y:
                     correct += 1
+            self.correct = correct
             print("\n\n################################################################")
             print(params)
             print('Optimized acc: %.5f ' % score_acc)

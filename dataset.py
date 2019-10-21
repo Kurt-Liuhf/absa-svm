@@ -30,7 +30,7 @@ def word_cluster(dataset):
     wc.generate_vector()
 
 
-def chi_calculation(dataset):
+def chi_calculation(dataset, ratio):
     stopwords = stop_words()
     chi_cal = CHI([" ".join(s.words) for s in dataset.train_data],
               [s.aspect_cluster for s in dataset.train_data],
@@ -38,7 +38,7 @@ def chi_calculation(dataset):
 
     chi_dict = {}
     for aspect_cluster, feature_list in chi_cal.chi_dict.items():
-        chi_dict[aspect_cluster] = feature_list[0: int(len(feature_list) * 1)]
+        chi_dict[aspect_cluster] = feature_list[0: int(len(feature_list) * ratio)]
 
     for sample in dataset.train_data:
         tmp_words = []
@@ -60,7 +60,7 @@ def chi_calculation(dataset):
 
 
 class Dataset(object):
-    def __init__(self, base_dir, is_preprocessed):
+    def __init__(self, base_dir, is_preprocessed, ratio=0.5):
         self.base_dir = base_dir
         if not is_preprocessed:
             training_path = os.path.join(base_dir, 'train.txt')
@@ -77,7 +77,7 @@ class Dataset(object):
             training_path = os.path.join(base_dir, 'parsed_data', 'parsed_train.plk')
             test_path = os.path.join(base_dir, 'parsed_data', 'parsed_test.plk')
             self.load_preprocessed_data(training_path, test_path)
-            chi_calculation(self)
+            chi_calculation(self, ratio)
 
     @staticmethod
     def load_raw_data(path):
@@ -109,7 +109,7 @@ class Dataset(object):
             for sample in self.test_data:
                 f.write(sample.__str__())
 
-    def data_from_aspect(self, aspect_cluster):
+    def data_from_aspect(self, aspect_cluster, is_sampling=True):
         pos = 0
         neg = 0
         net = 0
@@ -123,21 +123,21 @@ class Dataset(object):
                 else:
                     neg += 1
                 train_samples.append(s)
-        # if net < pos:
-        #     for s in self.train_data:
-        #         if s.polarity == 0 and s.aspect_cluster != aspect_cluster:
-        #             train_samples.append(s)
-        #             net += 1
-        #         if net >= pos:
-        #             break
-        # if neg < pos:
-        #     for s in self.train_data:
-        #         if s.polarity == -1 and s.aspect_cluster != aspect_cluster:
-        #             train_samples.append(s)
-        #             neg += 1
-        #         if neg >= pos:
-        #             break
-
+        if is_sampling:
+            if net < pos:
+                for s in self.train_data:
+                    if s.polarity == 0 and s.aspect_cluster != aspect_cluster:
+                        train_samples.append(s)
+                        net += 1
+                    if net >= pos:
+                        break
+            if neg < pos:
+                for s in self.train_data:
+                    if s.polarity == -1 and s.aspect_cluster != aspect_cluster:
+                        train_samples.append(s)
+                        neg += 1
+                    if neg >= pos:
+                        break
         test_samples = [s for s in self.test_data if s.aspect_cluster == aspect_cluster]
 
         return train_samples, test_samples
