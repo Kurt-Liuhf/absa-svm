@@ -18,11 +18,13 @@ def preprocessing(data):
         print(sample)
 
 
-def aspect_cluster(dataset):
-    ac = AspectCluster(dataset)
-    ac.fit()
+def aspect_cluster(dataset, n_clusters=10):
+    ac = AspectCluster(dataset, n_clusters)
+    _, vectors = ac.fit()
     ac.predict()
     ac.save_cluster_result()
+
+    return ac, vectors
 
 
 def word_cluster(dataset):
@@ -60,7 +62,7 @@ def chi_calculation(dataset, ratio):
 
 
 class Dataset(object):
-    def __init__(self, base_dir, is_preprocessed, ratio=0.5):
+    def __init__(self, base_dir, is_preprocessed, ratio=0.3):
         self.base_dir = base_dir
         if not is_preprocessed:
             training_path = os.path.join(base_dir, 'train.txt')

@@ -58,7 +58,7 @@ class AspectCluster(Cluster):
             self.training_clusters.setdefault(cluster_id, [])
             self.training_clusters[cluster_id].append(sample.aspect)
 
-        return labels
+        return labels, vectors
 
     def predict(self):
         test_data = self.dataset.test_data
