@@ -107,17 +107,62 @@ def evaluation(y_preds, y_true):
     print("####################################################################")
 
 
+# def main():
+#     chi_ratios = [x/10 for x in range(1, 11)]
+#     bow_features = ['all_words', 'parse_result']  # , 'parse+chi'
+#     is_sampling = [True, False]
+#     lsa_ks = [5, 10, 15, 20, 50, 100, 200, 300, 'no']
+#     best_accs = [0 for _ in range(0, 10)]
+#     print(chi_ratios)
+#     for lsa_k in lsa_ks:
+#         data = Dataset(base_dir=REST_DIR, is_preprocessed=True)
+#         # aspect_labels = data.get_aspect_labels()
+#         for aspect_id in range(0, 10):
+#             ht = HyperoptTuner()
+#             for iss in is_sampling:
+#                 train_data, test_data = data.data_from_aspect(aspect_id, is_sampling=iss)
+#                 print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
+#                       (aspect_id, len(train_data), len(test_data)))
+#                 for bf in bow_features:
+#                     x_train, y_train, x_test, y_test = generate_vectors(train_data, test_data, bf, lsa_k)
+#                     scaler = MinMaxScaler().fit(x_train)
+#                     x_train = scaler.transform(x_train)
+#                     x_test = scaler.transform(x_test)
+#                     ht.train_X = x_train
+#                     ht.train_y = y_train
+#                     ht.test_X = x_test
+#                     ht.test_y = y_test
+#                     ht.cluster_id = aspect_id
+#                     ht.base_dir = data.base_dir
+#                     ht.tune_params(1000)
+#
+#                     if ht.best_acc > best_accs[aspect_id]:
+#                         best_accs[aspect_id] = ht.best_acc
+#                         with open('svm_' + str(aspect_id), 'w') as f:
+#                             f.write("################################################################\n")
+#                             # f.write('chi_ratio: ' + str(cr) + '\n')
+#                             f.write('lsa_k: ' + str(lsa_k) + '\n')
+#                             f.write('bow_features: ' + bf + '\n')
+#                             f.write('is_sampling: ' + str(iss) + '\n')
+#                             f.write(str(ht.best_cfg) + "\n")
+#                             f.write('Optimized acc: %.5f \n' % ht.best_acc)
+#                             f.write('Optimized macro_f1: %.5f \n' % ht.best_f1)
+#                             f.write('training set shape: %s\n' % str(ht.train_X.shape))
+#                             f.write(ht.clf_report)
+#                             f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
+#                             f.write(str(ht.elapsed_time) + "\n")
+#                             f.write("################################################################")
+
+
 def main():
     chi_ratios = [x/10 for x in range(1, 11)]
     bow_features = ['all_words', 'parse_result']  # , 'parse+chi'
     is_sampling = [True, False]
-    lsa_ks = [5, 10, 15, 20, 50, 100, 200, 300, 'no']
+    lsa_ks = [10, 15, 20, 50, 100, 200, 300]
     best_accs = [0 for _ in range(0, 10)]
-    print(chi_ratios)
-    for lsa_k in lsa_ks:
-        data = Dataset(base_dir=REST_DIR, is_preprocessed=True)
-        # aspect_labels = data.get_aspect_labels()
-        for aspect_id in range(0, 10):
+    data = Dataset(base_dir=REST_DIR, is_preprocessed=True)
+    for aspect_id in range(0, 10):
+        for lsa_k in lsa_ks:
             ht = HyperoptTuner()
             for iss in is_sampling:
                 train_data, test_data = data.data_from_aspect(aspect_id, is_sampling=iss)
