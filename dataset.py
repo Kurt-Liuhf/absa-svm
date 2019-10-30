@@ -14,11 +14,11 @@ def preprocessing(data):
         # 2. get aspect-dependent words
         aspect_term = sample.aspect.split(' ')[-1]
         tmp_text = str.replace(sample.text, '##', aspect_term)
-        sample.dependent_words, _ = nlp_helper.get_dependent_words(sample.words, tmp_text, n=3)
+        sample.dependent_words, _ = nlp_helper.get_dependent_words(sample.words, tmp_text, n=2, window_size=5)
         print(sample)
 
 
-def aspect_cluster(dataset, n_clusters=10):
+def aspect_cluster(dataset, n_clusters=12):
     ac = AspectCluster(dataset, n_clusters)
     _, vectors = ac.fit()
     ac.predict()

@@ -29,7 +29,7 @@ class HyperoptTuner(object):
     def _preset_ps(self):
         space4svm = {
             'C': hp.uniform('C', 2 ** 10, 2 ** 20),
-            'kernel': hp.choice('kernel', ['sigmoid']), # , 'linear', 'rbf', 'polynomial'
+            'kernel': hp.choice('kernel', ['sigmoid', 'linear', 'rbf', 'polynomial']), #
             'gamma': hp.uniform('gamma', 0.001 / self.train_X.shape[1], 10.0 / self.train_X.shape[1]),
             # 'gamma_value': hp.uniform('gamma_value', 0.001 / self.train_X.shape[1], 10.0 / self.train_X.shape[1]),
             'degree': hp.choice('degree', [i for i in range(1, 6)]),

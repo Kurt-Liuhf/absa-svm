@@ -23,7 +23,7 @@ class StanfordNLP:
 
         return selected_words
 
-    def get_dependent_words(self, words, text, n=2):
+    def get_dependent_words(self, words, text, n=2, window_size=0):
         # locate the word index of `word`
         idx = words.index('##')
         dependent_results = self.dependent_parse(text)
@@ -45,6 +45,17 @@ class StanfordNLP:
         result = []
         result.extend(forwards)
         result.extend(backwards)
+
+        # add window-size words
+        if window_size != 0:
+            # right side
+            for i in range(idx + 2, idx + 2 + window_size, 1):
+                if i > len(words):
+                    break
+                result.append(i)
+            for i in range(idx + 1 - window_size, idx + 1, 1):
+                if i > 1:
+                    result.append(i)
 
         return [words[i-1] for i in result], dependent_results
 
