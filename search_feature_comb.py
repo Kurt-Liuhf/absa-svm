@@ -2,7 +2,7 @@ from dataset import *
 from file_utils import *
 from sklearn.decomposition import TruncatedSVD
 from sklearn.pipeline import make_pipeline
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from lexicon_features import *
 from hyperopt_svm import HyperoptTuner
 from sklearn.preprocessing import normalize
@@ -20,13 +20,17 @@ stop_words = stop_words()
 
 def generate_vectors(train_data, test_data, bf, lsa_k=None):
     if bf == 'all_words':
-        x_train_tfidf, x_test_tfidf = dependent_features_vectors([s.words for s in train_data],
-                                                                 [s.words for s in test_data])
+        x_train_tfidf, x_test_tfidf, x_train_pos_vec, x_test_pos_vec = dependent_features_vectors([s.words for s in train_data],
+                                                                 [s.words for s in test_data],
+                                                                 [s.pos_tags for s in train_data],
+                                                                 [s.pos_tags for s in test_data])
     elif bf == 'parse_result':
-        x_train_tfidf, x_test_tfidf = dependent_features_vectors([s.dependent_words for s in train_data],
-                                                                 [s.dependent_words for s in test_data])
+        x_train_tfidf, x_test_tfidf, x_train_pos_vec, x_test_pos_vec  = dependent_features_vectors([s.dependent_words for s in train_data],
+                                                                 [s.dependent_words for s in test_data],
+                                                                 [s.dependent_pos_tags for s in train_data],
+                                                                 [s.dependent_pos_tags for s in test_data])
     elif bf == 'parse+chi':
-        x_train_tfidf, x_test_tfidf = bow_features_vectors([s.bow_words for s in train_data],
+        x_train_tfidf, x_test_tfidf, _, _= bow_features_vectors([s.bow_words for s in train_data],
                                                            [s.bow_words for s in test_data])
 
     if lsa_k is not None and lsa_k != 'no':
@@ -53,8 +57,7 @@ def generate_vectors(train_data, test_data, bf, lsa_k=None):
     return x_train, y_train, x_test, y_test
 
 
-
-def dependent_features_vectors(train_words, test_words):
+def dependent_features_vectors(train_words, test_words, train_pos_tags=None, test_pos_tags=None):
     new_train_texts = []
     new_test_texts = []
 
@@ -68,7 +71,17 @@ def dependent_features_vectors(train_words, test_words):
     x_train_tfidf = tfidf_vectorize.fit_transform(new_train_texts).toarray()
     x_test_tfidf = tfidf_vectorize.transform(new_test_texts).toarray()
 
-    return x_train_tfidf, x_test_tfidf
+    # add pos tags information
+    x_train_pos_vec = []
+    x_test_pos_vec = []
+    if train_pos_tags is not None and test_pos_tags is not None:
+        count_vectorize = CountVectorizer(token_pattern=r'\w{1,}', binary=False)
+        new_train_pos = [" ".join(x) for x in train_pos_tags]
+        new_test_pos = [" ".join(x) for x in test_pos_tags]
+        x_train_pos_vec = count_vectorize.fit_transform(new_train_pos).toarray()
+        x_test_pos_vec = count_vectorize.transform(new_test_pos).toarray()
+
+    return x_train_tfidf, x_test_tfidf, x_train_pos_vec, x_test_pos_vec
 
 
 def bow_features_vectors(train_sentences, test_sentences):
@@ -85,11 +98,11 @@ def lexicons_features_vectors(tokens, pos_tags, dependent_words=None):
     for words, tags, dw in zip(tokens, pos_tags, dependent_words):
         new_words = []
         new_tags = []
-        tmp_dw_set = set([w for w in dw if w not in stop_words])
+        # tmp_dw_set = set([w for w in dw if w not in stop_words])
         for w, t in zip(words, tags):
-            if w in tmp_dw_set:
-                new_words.append(w)
-                new_tags.append(t)
+            # if w in tmp_dw_set:
+            new_words.append(w)
+            new_tags.append(t)
         new_tokens.append(new_words)
         new_pos_tags.append(new_tags)
     return LexiconFeatureExtractor(new_tokens, new_pos_tags).vectors
@@ -108,11 +121,11 @@ def evaluation(y_preds, y_true):
 
 def main():
     chi_ratios = [x/10 for x in range(1, 11)]
-    bow_features = ['parse_result']  #,'all_words',  'parse+chi'
+    bow_features = ['all_words', 'parse_result']  #,'all_words',  'parse+chi'
     is_sampling = [True, False]
     best_accs = [0 for _ in range(0, 12)]
     print(chi_ratios)
-    for aspect_id in range(0, 12):
+    for aspect_id in range(0, 10):
         ht = HyperoptTuner()
         # for cr in chi_ratios:
         data = Dataset(base_dir=REST_DIR, is_preprocessed=True) #, ratio=cr
@@ -149,7 +162,6 @@ def main():
                         f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
                         f.write(str(ht.elapsed_time) + "\n")
                         f.write("################################################################")
-
 
 
 # def main():

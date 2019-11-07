@@ -14,7 +14,7 @@ def preprocessing(data):
         # 2. get aspect-dependent words
         aspect_term = sample.aspect.split(' ')[-1]
         tmp_text = str.replace(sample.text, '##', aspect_term)
-        sample.dependent_words, _ = nlp_helper.get_dependent_words(sample.words, tmp_text, n=2, window_size=5)
+        sample.dependent_words, sample.dependent_pos_tags, _ = nlp_helper.get_dependent_words(sample.words, sample.pos_tags, tmp_text, n=2, window_size=5)
         print(sample)
 
 
@@ -156,6 +156,7 @@ class Sample(object):
         self.words = []
         self.pos_tags = []
         self.dependent_words = []   # words that has dependency with aspect
+        self.dependent_pos_tags = []
         self.aspect_cluster = -1
         self.bow_words = []
         self.sbow_vec = []
@@ -164,7 +165,7 @@ class Sample(object):
         result = "###############################################################\n" + \
                  self.text + '\n' + self.aspect + '\n' + str(self.polarity) + '\n' + \
                  str(self.aspect_cluster) + '\n' + " ".join(self.words) + '\n' + " ".join(self.pos_tags)\
-                 + '\n' + " ".join(self.dependent_words) + '\n' + \
+                 + '\n' + " ".join(self.dependent_words) + '\n' + " ".join(self.dependent_pos_tags) + '\n'\
                  "###############################################################\n"
 
         return result

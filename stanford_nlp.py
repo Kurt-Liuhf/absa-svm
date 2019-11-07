@@ -23,7 +23,7 @@ class StanfordNLP:
 
         return selected_words
 
-    def get_dependent_words(self, words, text, n=2, window_size=0):
+    def get_dependent_words(self, words, pos_tags, text, n=2, window_size=0):
         # locate the word index of `word`
         idx = words.index('##')
         dependent_results = self.dependent_parse(text)
@@ -59,7 +59,8 @@ class StanfordNLP:
         result = list(set(result))
         result.sort()
 
-        return [words[i-1] for i in result], dependent_results
+        print("!!!!!!!--->> " + " ".join(pos_tags))
+        return [words[i-1] for i in result], [pos_tags[i-1] for i in result], dependent_results
 
     def tokenize(self, text, stop_words=[]):
         stop_words.append('##')
