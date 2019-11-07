@@ -56,6 +56,8 @@ class StanfordNLP:
             for i in range(idx + 1 - window_size, idx + 1, 1):
                 if i > 1:
                     result.append(i)
+        result = list(set(result))
+        result.sort()
 
         return [words[i-1] for i in result], dependent_results
 

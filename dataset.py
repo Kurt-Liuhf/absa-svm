@@ -18,7 +18,7 @@ def preprocessing(data):
         print(sample)
 
 
-def aspect_cluster(dataset, n_clusters=12):
+def aspect_cluster(dataset, n_clusters=10):
     ac = AspectCluster(dataset, n_clusters)
     _, vectors = ac.fit()
     ac.predict()
