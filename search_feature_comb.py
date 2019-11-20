@@ -30,8 +30,12 @@ def generate_vectors(train_data, test_data, bf, lsa_k=None):
                                                                  [s.dependent_pos_tags for s in train_data],
                                                                  [s.dependent_pos_tags for s in test_data])
     elif bf == 'parse+chi':
-        x_train_tfidf, x_test_tfidf, _, _= bow_features_vectors([s.bow_words for s in train_data],
-                                                           [s.bow_words for s in test_data])
+        # x_train_tfidf, x_test_tfidf, _, _= bow_features_vectors([s.bow_words for s in train_data],
+                                                           # [s.bow_words for s in test_data])
+        x_train_tfidf, x_test_tfidf, x_train_pos_vec, x_test_pos_vec  = dependent_features_vectors([s.bow_words for s in train_data],
+                                                     [s.bow_words for s in test_data],
+                                                     [s.bow_tags for s in train_data],
+                                                     [s.bow_tags for s in test_data])
 
     if lsa_k is not None and lsa_k != 'no':
         svd = TruncatedSVD(lsa_k, algorithm='arpack', random_state=42, n_iter=5000)
@@ -49,11 +53,10 @@ def generate_vectors(train_data, test_data, bf, lsa_k=None):
                                            [s.pos_tags for s in test_data],
                                            [s.dependent_words for s in test_data])
 
-    x_train = np.concatenate((x_train_tfidf, x_train_sbow, x_train_lfe), axis=1)
-    x_test = np.concatenate((x_test_tfidf, x_test_sbow, x_test_lfe), axis=1)
+    x_train = np.concatenate((x_train_tfidf, x_train_pos_vec,  x_train_sbow, x_train_lfe), axis=1)
+    x_test = np.concatenate((x_test_tfidf, x_test_pos_vec, x_test_sbow, x_test_lfe), axis=1)
     y_train = [y.polarity for y in train_data]
     y_test = [y.polarity for y in test_data]
-
     return x_train, y_train, x_test, y_test
 
 
@@ -121,48 +124,79 @@ def evaluation(y_preds, y_true):
 
 def main():
     chi_ratios = [x/10 for x in range(1, 11)]
-    bow_features = ['all_words', 'parse_result']  #,'all_words',  'parse+chi'
+    bow_features = ['all_words', 'parse_result', 'parse+chi']  #,'all_words',  'parse+chi'
     is_sampling = [True, False]
     best_accs = [0 for _ in range(0, 12)]
     print(chi_ratios)
     for aspect_id in range(0, 10):
         ht = HyperoptTuner()
-        # for cr in chi_ratios:
-        data = Dataset(base_dir=REST_DIR, is_preprocessed=True) #, ratio=cr
-        for iss in is_sampling:
-            train_data, test_data = data.data_from_aspect(aspect_id, is_sampling=iss)
-            print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
-                  (aspect_id, len(train_data), len(test_data)))
-            for bf in bow_features:
-                x_train, y_train, x_test, y_test = generate_vectors(train_data, test_data, bf)
-                scaler =Normalizer().fit(x_train)
-                x_train = scaler.transform(x_train)
-                x_test = scaler.transform(x_test)
-                ht.train_X = x_train
-                ht.train_y = y_train
-                ht.test_X = x_test
-                ht.test_y = y_test
-                ht.cluster_id = aspect_id
-                ht.base_dir = data.base_dir
-                ht.tune_params(1000)
+        for bf in bow_features:
+            for iss in is_sampling:
+                if 'chi' in bf:
+                    for cr in chi_ratios:
+                        data = Dataset(base_dir=REST_DIR, is_preprocessed=True, ratio=cr) #
+                        train_data, test_data = data.data_from_aspect(aspect_id, is_sampling=iss)
+                        print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
+                              (aspect_id, len(train_data), len(test_data)))
+                        x_train, y_train, x_test, y_test = generate_vectors(train_data, test_data, bf)
+                        print(x_train.shape)
+                        scaler = Normalizer().fit(x_train)
+                        x_train = scaler.transform(x_train)
+                        x_test = scaler.transform(x_test)
+                        ht.train_X = x_train
+                        ht.train_y = y_train
+                        ht.test_X = x_test
+                        ht.test_y = y_test
+                        ht.cluster_id = aspect_id
+                        ht.base_dir = data.base_dir
+                        ht.tune_params(2000)
 
-                if ht.best_acc > best_accs[aspect_id]:
-                    best_accs[aspect_id] = ht.best_acc
-                    with open('svm_' + str(aspect_id), 'w') as f:
-                        f.write("################################################################\n")
-                        # f.write('chi_ratio: ' + str(cr) + '\n')
-                        # f.write('cr: ' + str(cr) + '\n')
-                        f.write('bow_features: ' + bf + '\n')
-                        f.write('is_sampling: ' + str(iss) + '\n')
-                        f.write(str(ht.best_cfg) + "\n")
-                        f.write('Optimized acc: %.5f \n' % ht.best_acc)
-                        f.write('Optimized macro_f1: %.5f \n' % ht.best_f1)
-                        f.write('training set shape: %s\n' % str(ht.train_X.shape))
-                        f.write(ht.clf_report)
-                        f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
-                        f.write(str(ht.elapsed_time) + "\n")
-                        f.write("################################################################")
+                        if ht.best_acc > best_accs[aspect_id]:
+                            best_accs[aspect_id] = ht.best_acc
+                            with open('svm_' + str(aspect_id), 'w') as f:
+                                f.write("################################################################\n")
+                                f.write('chi_ratio: ' + str(cr) + '\n')
+                                # f.write('cr: ' + str(cr) + '\n')
+                                f.write('bow_features: ' + bf + '\n')
+                                f.write('is_sampling: ' + str(iss) + '\n')
+                                f.write(str(ht.best_cfg) + "\n")
+                                f.write('Optimized acc: %.5f \n' % ht.best_acc)
+                                f.write('Optimized macro_f1: %.5f \n' % ht.best_f1)
+                                f.write('training set shape: %s\n' % str(ht.train_X.shape))
+                                f.write(ht.clf_report)
+                                f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
+                                f.write(str(ht.elapsed_time) + "\n")
+                else:
+                    data = Dataset(base_dir=REST_DIR, is_preprocessed=True) #
+                    train_data, test_data = data.data_from_aspect(aspect_id, is_sampling=iss)
+                    print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
+                          (aspect_id, len(train_data), len(test_data)))
+                    x_train, y_train, x_test, y_test = generate_vectors(train_data, test_data, bf)
+                    scaler = Normalizer().fit(x_train)
+                    x_train = scaler.transform(x_train)
+                    x_test = scaler.transform(x_test)
+                    ht.train_X = x_train
+                    ht.train_y = y_train
+                    ht.test_X = x_test
+                    ht.test_y = y_test
+                    ht.cluster_id = aspect_id
+                    ht.base_dir = data.base_dir
+                    ht.tune_params(2000)
 
+                    if ht.best_acc > best_accs[aspect_id]:
+                        best_accs[aspect_id] = ht.best_acc
+                        with open('svm_' + str(aspect_id), 'w') as f:
+                            f.write("################################################################\n")
+                            # f.write('chi_ratio: ' + str(cr) + '\n')
+                            # f.write('cr: ' + str(cr) + '\n')
+                            f.write('bow_features: ' + bf + '\n')
+                            f.write('is_sampling: ' + str(iss) + '\n')
+                            f.write(str(ht.best_cfg) + "\n")
+                            f.write('Optimized acc: %.5f \n' % ht.best_acc)
+                            f.write('Optimized macro_f1: %.5f \n' % ht.best_f1)
+                            f.write('training set shape: %s\n' % str(ht.train_X.shape))
+                            f.write(ht.clf_report)
+                            f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
 
 # def main():
     # chi_ratios = [x/10 for x in range(1, 11)]

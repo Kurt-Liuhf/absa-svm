@@ -14,7 +14,7 @@ def preprocessing(data):
         # 2. get aspect-dependent words
         aspect_term = sample.aspect.split(' ')[-1]
         tmp_text = str.replace(sample.text, '##', aspect_term)
-        sample.dependent_words, sample.dependent_pos_tags, _ = nlp_helper.get_dependent_words(sample.words, sample.pos_tags, tmp_text, n=2, window_size=5)
+        sample.dependent_words, sample.dependent_pos_tags, _ = nlp_helper.get_dependent_words(sample.words, sample.pos_tags, tmp_text, n=3, window_size=5)
         print(sample)
 
 
@@ -43,22 +43,24 @@ def chi_calculation(dataset, ratio):
         chi_dict[aspect_cluster] = feature_list[0: int(len(feature_list) * ratio)]
 
     for sample in dataset.train_data:
-        tmp_words = []
+        sample.bow_words = []
+        sample.bow_tags = []
         for w in sample.words:
             if w in stopwords:
                 continue
             if w in chi_dict[sample.aspect_cluster] or w in sample.dependent_words:
-                tmp_words.append(w)
-        sample.bow_words = " ".join(tmp_words)
+                sample.bow_words.append(w)
+                sample.bow_tags.append(w)
 
     for sample in dataset.test_data:
-        tmp_words = []
+        sample.bow_words = []
+        sample.bow_tags = []
         for w in sample.words:
             if w in stopwords:
                 continue
             if w in chi_dict[sample.aspect_cluster] or w in sample.dependent_words:
-                tmp_words.append(w)
-        sample.bow_words = " ".join(set(tmp_words))
+                sample.bow_words.append(w)
+                sample.bow_tags.append(w)
 
 
 class Dataset(object):
@@ -159,6 +161,7 @@ class Sample(object):
         self.dependent_pos_tags = []
         self.aspect_cluster = -1
         self.bow_words = []
+        self.bow_tags = []
         self.sbow_vec = []
 
     def __str__(self):
@@ -173,4 +176,4 @@ class Sample(object):
 
 if __name__ == '__main__':
     base_dir = 'datasets/rest/'
-    data = Dataset(base_dir, is_preprocessed=False)
+    data = Dataset(base_dir, is_preprocessed=True)

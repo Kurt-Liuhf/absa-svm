@@ -60,8 +60,8 @@ class CHI(object):
         print('chi calculation done ...')
         for label in self.labels_counter.keys():
             tmp_dict = chi_dict[label]
-            chi_dict[label] = sorted(tmp_dict.items(), key=lambda x: x[1], reverse=True)
-
+            chi_dict[label] = sorted(tmp_dict.items(), key=lambda x: x[1]) # , reverse=True
+            # print(chi_dict[label])
         return chi_dict
 
 
