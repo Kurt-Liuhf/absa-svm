@@ -1,8 +1,8 @@
 ################################################################
-{'C': 969917.3954267392, 'coef0': 1.908352958248601, 'gamma': 0.005997232957177602, 'kernel': 'sigmoid'}
-Optimized acc: 0.68056 
-Optimized macro_f1: 0.54069 
-training set shape: (227, 616)
+{'C': 625912.4344651689, 'gamma': 0.00040355413700410975, 'kernel': 'rbf'}
+Optimized acc: 0.61111 
+Optimized macro_f1: 0.49372 
+training set shape: (227, 1086)
               precision    recall  f1-score   support
 
           -1       0.56      1.00      0.72         9
@@ -12,6 +12,6 @@ training set shape: (227, 616)
     accuracy                           0.82        72
    macro avg       0.77      0.81      0.76        72
 weighted avg       0.85      0.82      0.82        72
-correct / total: 49 / 72
-279.85854482650757
+correct / total: 44 / 72
+399.06852173805237
 ################################################################

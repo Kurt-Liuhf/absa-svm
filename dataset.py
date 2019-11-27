@@ -18,7 +18,7 @@ def preprocessing(data):
         print(sample)
 
 
-def aspect_cluster(dataset, n_clusters=10):
+def aspect_cluster(dataset, n_clusters=20):
     ac = AspectCluster(dataset, n_clusters)
     _, vectors = ac.fit()
     ac.predict()
@@ -176,4 +176,4 @@ class Sample(object):
 
 if __name__ == '__main__':
     base_dir = 'datasets/rest/'
-    data = Dataset(base_dir, is_preprocessed=True)
+    data = Dataset(base_dir, is_preprocessed=False)

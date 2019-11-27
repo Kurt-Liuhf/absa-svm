@@ -126,9 +126,9 @@ def main():
     chi_ratios = [x/10 for x in range(1, 11)]
     bow_features = ['all_words', 'parse_result', 'parse+chi']  #,'all_words',  'parse+chi'
     is_sampling = [True, False]
-    best_accs = [0 for _ in range(0, 12)]
+    best_accs = [0 for _ in range(0, 19)]
     print(chi_ratios)
-    for aspect_id in range(0, 10):
+    for aspect_id in range(0, 19):
         ht = HyperoptTuner()
         for bf in bow_features:
             for iss in is_sampling:

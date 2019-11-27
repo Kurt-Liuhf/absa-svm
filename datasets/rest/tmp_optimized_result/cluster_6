@@ -1,17 +1,17 @@
 ################################################################
-{'C': 292978.37899848074, 'coef0': 6.368605610932137, 'degree': 1, 'gamma': 0.001156651834230958, 'kernel': 'polynomial'}
-Optimized acc: 0.50000 
-Optimized macro_f1: 0.50451 
-training set shape: (169, 538)
+{'C': 462714.0076503323, 'coef0': 8.5851381099593, 'degree': 2, 'gamma': 0.0008974722749950798, 'kernel': 'polynomial'}
+Optimized acc: 0.77500 
+Optimized macro_f1: 0.77116 
+training set shape: (169, 924)
               precision    recall  f1-score   support
 
-          -1       0.88      0.88      0.88         8
-           0       0.69      0.65      0.67        17
-           1       0.69      0.73      0.71        15
+          -1       0.75      0.75      0.75         8
+           0       0.74      0.82      0.78        17
+           1       0.85      0.73      0.79        15
 
-    accuracy                           0.73        40
-   macro avg       0.75      0.75      0.75        40
-weighted avg       0.72      0.72      0.72        40
-correct / total: 20 / 40
-424.6305809020996
+    accuracy                           0.78        40
+   macro avg       0.78      0.77      0.77        40
+weighted avg       0.78      0.78      0.78        40
+correct / total: 31 / 40
+541.9337961673737
 ################################################################
