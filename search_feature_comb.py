@@ -11,6 +11,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import Normalizer
 from sklearn.preprocessing import scale
+from hyperopt_libsvm import HyperoptTunerLibSVM
+import time
 
 
 REST_DIR = 'datasets/rest/'
@@ -125,11 +127,13 @@ def evaluation(y_preds, y_true):
 def main():
     chi_ratios = [x/10 for x in range(1, 11)]
     bow_features = ['all_words', 'parse_result', 'parse+chi']  #,'all_words',  'parse+chi'
-    is_sampling = [True, False]
-    best_accs = [0 for _ in range(0, 19)]
+    is_sampling = [True]
+    best_accs = [0 for _ in range(0, 26)]
     print(chi_ratios)
+    num_rounds = 2000
     for aspect_id in range(0, 19):
-        ht = HyperoptTuner()
+        ht = HyperoptTunerLibSVM()
+        # ht1 = HyperoptTunerLibSVM()
         for bf in bow_features:
             for iss in is_sampling:
                 if 'chi' in bf:
@@ -149,7 +153,7 @@ def main():
                         ht.test_y = y_test
                         ht.cluster_id = aspect_id
                         ht.base_dir = data.base_dir
-                        ht.tune_params(2000)
+                        ht.tune_params(num_rounds)
 
                         if ht.best_acc > best_accs[aspect_id]:
                             best_accs[aspect_id] = ht.best_acc
@@ -165,7 +169,7 @@ def main():
                                 f.write('training set shape: %s\n' % str(ht.train_X.shape))
                                 f.write(ht.clf_report)
                                 f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
-                                f.write(str(ht.elapsed_time) + "\n")
+                                f.write("elapsed time: %.5f s\n" % ht.elapsed_time)
                 else:
                     data = Dataset(base_dir=REST_DIR, is_preprocessed=True) #
                     train_data, test_data = data.data_from_aspect(aspect_id, is_sampling=iss)
@@ -181,7 +185,7 @@ def main():
                     ht.test_y = y_test
                     ht.cluster_id = aspect_id
                     ht.base_dir = data.base_dir
-                    ht.tune_params(2000)
+                    ht.tune_params(num_rounds)
 
                     if ht.best_acc > best_accs[aspect_id]:
                         best_accs[aspect_id] = ht.best_acc
@@ -197,6 +201,8 @@ def main():
                             f.write('training set shape: %s\n' % str(ht.train_X.shape))
                             f.write(ht.clf_report)
                             f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
+                            # f.write("TSVM elapsed time: %.5f s\n" % ht.elapsed_time)
+                            f.write("elapsed time: %.5f s\n" % ht.elapsed_time)
 
 # def main():
     # chi_ratios = [x/10 for x in range(1, 11)]

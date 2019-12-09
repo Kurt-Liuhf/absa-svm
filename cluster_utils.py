@@ -16,7 +16,7 @@ class Cluster(object):
                              random_state=42)
 
     def _fit(self, X):
-        """ X is an nd-array, shape=[#instance, dim]"""
+        """ X is a nd-array, shape=[#instance, dim]"""
         self.kmeans.fit(X)
         return self.kmeans.labels_
 

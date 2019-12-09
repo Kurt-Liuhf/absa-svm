@@ -9,6 +9,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import Normalizer
 from sklearn.preprocessing import scale
+from hyperopt_libsvm import HyperoptTunerLibSVM
 
 
 REST_DIR = 'datasets/rest/'
@@ -107,8 +108,9 @@ def main():
         scaler = Normalizer().fit(x_train)
         x_train = scaler.transform(x_train)
         x_test = scaler.transform(x_test)
-        ht = HyperoptTuner(x_train, y_train, x_test, y_test, aspect_id, data.base_dir)
-        ht.tune_params(5000)
+        # ht = HyperoptTuner(x_train, y_train, x_test, y_test, aspect_id, data.base_dir)
+        ht = HyperoptTunerLibSVM(x_train, y_train, x_test, y_test, aspect_id, data.base_dir)
+        ht.tune_params(500)
         y_preds.extend(ht.pred_results)
         y_true.extend(y_test)
     evaluation(y_preds, y_true)
