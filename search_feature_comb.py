@@ -176,33 +176,6 @@ def main():
                     print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
                           (aspect_id, len(train_data), len(test_data)))
                     x_train, y_train, x_test, y_test = generate_vectors(train_data, test_data, bf)
-                    scaler = Normalizer().fit(x_train)
-                    x_train = scaler.transform(x_train)
-                    x_test = scaler.transform(x_test)
-                    ht.train_X = x_train
-                    ht.train_y = y_train
-                    ht.test_X = x_test
-                    ht.test_y = y_test
-                    ht.cluster_id = aspect_id
-                    ht.base_dir = data.base_dir
-                    ht.tune_params(num_rounds)
-
-                    if ht.best_acc > best_accs[aspect_id]:
-                        best_accs[aspect_id] = ht.best_acc
-                        with open('svm_' + str(aspect_id), 'w') as f:
-                            f.write("################################################################\n")
-                            # f.write('chi_ratio: ' + str(cr) + '\n')
-                            # f.write('cr: ' + str(cr) + '\n')
-                            f.write('bow_features: ' + bf + '\n')
-                            f.write('is_sampling: ' + str(iss) + '\n')
-                            f.write(str(ht.best_cfg) + "\n")
-                            f.write('Optimized acc: %.5f \n' % ht.best_acc)
-                            f.write('Optimized macro_f1: %.5f \n' % ht.best_f1)
-                            f.write('training set shape: %s\n' % str(ht.train_X.shape))
-                            f.write(ht.clf_report)
-                            f.write("correct / total: %d / %d\n" % (ht.correct, len(ht.test_y)))
-                            # f.write("TSVM elapsed time: %.5f s\n" % ht.elapsed_time)
-                            f.write("elapsed time: %.5f s\n" % ht.elapsed_time)
 
 
 if __name__ == '__main__':

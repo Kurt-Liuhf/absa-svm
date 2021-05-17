@@ -77,6 +77,7 @@ class Dataset(object):
             word_cluster(self)
             self.save_as_pickle()
             self.save_as_txt()
+            self.save_as_tmp()
         else:
             training_path = os.path.join(base_dir, 'parsed_data', 'parsed_train.plk')
             test_path = os.path.join(base_dir, 'parsed_data', 'parsed_test.plk')
@@ -148,6 +149,23 @@ class Dataset(object):
 
     def get_aspect_labels(self):
         return list(set([s.aspect_cluster for s in self.train_data]))
+
+    def save_as_tmp(self):
+        base_dir = 'tmp_result'
+        remove_dirs(base_dir)
+        make_dirs(os.path.join(base_dir, 'train'))
+        make_dirs(os.path.join(base_dir, 'test'))
+        for s in self.train_data:
+            with open("tmp_result/train/" + str(s.aspect_cluster), 'a') as f:
+                f.write(s.text + "\n")
+                f.write(s.aspect + "\n")
+                f.write(str(s.polarity) + "\n")
+        for s in self.test_data:
+            with open("tmp_result/test/" + str(s.aspect_cluster), 'a') as f:
+                f.write(s.text + "\n")
+                f.write(s.aspect + "\n")
+                f.write(str(s.polarity) + "\n")
+
 
 
 class Sample(object):

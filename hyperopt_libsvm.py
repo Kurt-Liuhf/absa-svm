@@ -39,10 +39,10 @@ class HyperoptTunerLibSVM(object):
         return space4svm
 
     def _svm_constraint(self, params):
-        if params['kernel'] != 'polynomial':
+        if params['kernel'] != 'poly':
             params.pop('degree', None)
 
-        if params['kernel'] != 'polynomial' and params['kernel'] != 'sigmoid':
+        if params['kernel'] != 'poly' and params['kernel'] != 'sigmoid':
             params.pop('coef0', None)
 
         if params['kernel'] == 'linear':
