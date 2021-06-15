@@ -1,0 +1,130 @@
+loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /home/hanfeng/.cache/torch/pytorch_transformers/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
+loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /home/hanfeng/.cache/torch/pytorch_transformers/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 2,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-pytorch_model.bin from cache at /home/hanfeng/.cache/torch/pytorch_transformers/aa1ef1aede4482d0dbcd4d52baad8ae300e60902e88fcb0bebdec09afd232066.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
+cuda memory allocated: 439071232
+n_trainable_params: 109484547, n_nontrainable_params: 0
+> training arguments:
+>>> model_name: bert_spc
+>>> dataset: restaurant
+>>> optimizer: <class 'torch.optim.adam.Adam'>
+>>> initializer: <function xavier_uniform_ at 0x7f67a74a5b70>
+>>> learning_rate: 2e-05
+>>> dropout: 0.1
+>>> l2reg: 0.01
+>>> num_epoch: 10
+>>> batch_size: 16
+>>> log_step: 5
+>>> embed_dim: 300
+>>> hidden_dim: 300
+>>> bert_dim: 768
+>>> pretrained_bert_name: bert-base-uncased
+>>> max_seq_len: 80
+>>> polarities_dim: 3
+>>> hops: 3
+>>> device: cuda
+>>> seed: None
+>>> valset_ratio: 0
+>>> local_context_focus: cdm
+>>> SRD: 3
+>>> CID: 14
+>>> model_class: <class 'models.bert_spc.BERT_SPC'>
+>>> dataset_file: {'train': './newdatasets/laptop/train/14', 'test': './newdatasets/laptop/test/14'}
+>>> inputs_cols: ['text_bert_indices', 'bert_segments_ids']
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 0
+loss: 1.4228, acc: 0.4375
+> val_acc: 0.0476, val_f1: 0.0303
+> #correct: 1.0000, #total: 21.0000
+>> saved: state_dict/bert_spc_restaurant_val_acc0.0476
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 1
+loss: 0.9501, acc: 0.5000
+> val_acc: 0.6667, val_f1: 0.2667
+> #correct: 14.0000, #total: 21.0000
+>> saved: state_dict/bert_spc_restaurant_val_acc0.6667
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 2
+loss: 0.6231, acc: 0.8125
+loss: 0.9928, acc: 0.5000
+> val_acc: 0.2857, val_f1: 0.1905
+> #correct: 6.0000, #total: 21.0000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 3
+loss: 0.8458, acc: 0.6406
+> val_acc: 0.6667, val_f1: 0.2667
+> #correct: 14.0000, #total: 21.0000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 4
+loss: 0.8716, acc: 0.4688
+loss: 0.8831, acc: 0.5510
+> val_acc: 0.5714, val_f1: 0.2581
+> #correct: 12.0000, #total: 21.0000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 5
+loss: 0.8181, acc: 0.7125
+> val_acc: 0.6667, val_f1: 0.2745
+> #correct: 14.0000, #total: 21.0000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 6
+loss: 0.7901, acc: 0.5833
+> val_acc: 0.6667, val_f1: 0.2667
+> #correct: 14.0000, #total: 21.0000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 7
+loss: 0.7698, acc: 0.6875
+loss: 0.7392, acc: 0.7812
+> val_acc: 0.5238, val_f1: 0.2619
+> #correct: 11.0000, #total: 21.0000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 8
+loss: 0.7030, acc: 0.7500
+> val_acc: 0.6667, val_f1: 0.2745
+> #correct: 14.0000, #total: 21.0000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+epoch: 9
+loss: 0.4938, acc: 0.8125
+loss: 0.5252, acc: 0.8367
+> val_acc: 0.5714, val_f1: 0.3457
+> #correct: 12.0000, #total: 21.0000
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00         1
+           1       0.00      0.00      0.00         6
+           2       0.67      1.00      0.80        14
+
+   micro avg       0.67      0.67      0.67        21
+   macro avg       0.22      0.33      0.27        21
+weighted avg       0.44      0.67      0.53        21
+
+>> test_acc: 0.6667, test_f1: 0.2667
+>> #correct: 14.0000, #total: 21.0000
+/home/hanfeng/.local/lib/python3.6/site-packages/sklearn/metrics/classification.py:1143: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/home/hanfeng/.local/lib/python3.6/site-packages/sklearn/metrics/classification.py:1143: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
