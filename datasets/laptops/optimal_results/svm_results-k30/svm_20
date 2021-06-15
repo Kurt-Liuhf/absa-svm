@@ -1,0 +1,17 @@
+################################################################
+bow_features: all_words
+is_sampling: True
+{'C': 664688.3739463771, 'coef0': 6.316285511744232, 'gamma': 0.01856025754921757, 'kernel': 'sigmoid'}
+Optimized acc: 0.90909 
+Optimized macro_f1: 0.91111 
+training set shape: (87, 493)
+              precision    recall  f1-score   support
+
+          -1       1.00      1.00      1.00         1
+           0       1.00      0.67      0.80         3
+           1       0.88      1.00      0.93         7
+
+    accuracy                           0.91        11
+   macro avg       0.96      0.89      0.91        11
+weighted avg       0.92      0.91      0.90        11
+correct / total: 10 / 11
