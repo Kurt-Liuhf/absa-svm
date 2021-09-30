@@ -1,11 +1,9 @@
-from sklearn.cluster.k_means_ import KMeans
+from sklearn.cluster import KMeans
 import numpy as np
 from dataset import *
 from file_utils import *
 import pickle
 import os
-from file_utils import *
-
 
 class Cluster(object):
 

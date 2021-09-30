@@ -1,4 +1,4 @@
-from sklearn.cluster.k_means_ import KMeans
+from sklearn.cluster import KMeans
 from sklearn.datasets import *
 from sklearn.model_selection import train_test_split
 from collections import Counter

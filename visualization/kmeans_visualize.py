@@ -1,6 +1,7 @@
-import os
-os.chdir("..")
+import sys
+sys.path.append('..')
 
+import os
 import numpy as np
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt

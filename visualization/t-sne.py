@@ -1,10 +1,12 @@
 """ visualization for aspect clustering """
+import sys
+sys.path.append('..')
+
+import os
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import pandas as pd
 from dataset import *
-import os
-os.chdir("..")
 
 base_dir = 'datasets/rest/'
 data = Dataset(base_dir, is_preprocessed=True)
