@@ -17,7 +17,7 @@ class Dataset:
         self.train_set = []
         self.test_set = []
         self.kmeans = KMeans(n_clusters=n_clusters,
-                             n_jobs=20,
+                             #n_jobs=20,
                              max_iter=5000,
                              random_state=42)
 
@@ -160,8 +160,8 @@ class Classifier:
 
 if __name__ == "__main__":
     # X, y = fetch_covtype(return_X_y=True)
-    X_train, y_train = load_svmlight_file('./datasets/letter.train')
-    X_test, y_test = load_svmlight_file('./datasets/letter.test')
+    X_train, y_train = load_svmlight_file('./datasets/letter.scale.tr')
+    X_test, y_test = load_svmlight_file('./datasets/letter.scale.t')
     X_train = X_train.toarray()
     X_test = X_test.toarray()
     print(X_train.shape)

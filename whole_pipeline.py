@@ -17,7 +17,7 @@ class Dataset:
         self.train_set = []
         self.test_set = []
         self.kmeans = KMeans(n_clusters=n_clusters,
-                             n_jobs=20,
+                             #n_jobs=20,
                              max_iter=5000,
                              random_state=42)
 

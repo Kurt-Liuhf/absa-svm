@@ -160,12 +160,11 @@ class Classifier:
 
 
 if __name__ == "__main__":
-    exit()
     # X, y = fetch_covtype(return_X_y=True)
     # X_train, y_train = load_svmlight_file('./datasets/a7a', n_features=123)
     # X_test, y_test = load_svmlight_file('./datasets/a7a.t', n_features=123)
-    X_train, y_train = load_svmlight_file('./datasets/poker.bz2')
-    X_test, y_test = load_svmlight_file('./datasets/poker.t.bz2')
+    X_train, y_train = load_svmlight_file('./datasets/poker.t.bz2')
+    X_test, y_test = load_svmlight_file('./datasets/poker.bz2')
     # dataset_name = 'poker'
     # X_train, y_train = load_svmlight_file('./datasets/' + dataset_name + '.train')
     # X_test, y_test = load_svmlight_file('./datasets/' + dataset_name + '.test')
