@@ -4,6 +4,7 @@ _*
 .vscode
 stanfordnlp_resources
 model
+__*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
