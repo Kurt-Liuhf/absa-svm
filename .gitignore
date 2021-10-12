@@ -5,6 +5,10 @@ _*
 stanfordnlp_resources
 model
 __*
+datasets/rest/aspect_cluster/test/cluster_*
+datasets/rest/aspect_cluster/train/cluster_*
+datasets/laptops/aspect_cluster/test/cluster_*
+datasets/laptops/aspect_cluster/train/cluster_*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
