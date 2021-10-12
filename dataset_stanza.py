@@ -8,6 +8,12 @@ from typing import List, Tuple
 
 import faulthandler
 
+NLP_HELPER = None
+
+def load_stanza():
+    stanza.download('en')
+    return stanza.Pipeline(lang='en', tokenize_pretokenized=True)
+    
 def aspect_cluster(dataset, n_clusters=20):
     ac = AspectCluster(dataset, n_clusters)
     _, vectors = ac.fit()
@@ -53,14 +59,18 @@ def chi_calculation(dataset, ratio):
 class Dataset(object):
     def __init__(self, base_dir, is_preprocessed, ratio=0.3):
         self.base_dir = base_dir
-        self.nlp_helper = self.load_stanza()
+        self.train_data = None
+        self.test_data = None
+
         if not is_preprocessed:
+            global NLP_HELPER
+            NLP_HELPER = load_stanza()
             training_path = os.path.join(base_dir, 'train.txt')
             test_path = os.path.join(base_dir, 'test.txt')
             self.train_data = self.load_raw_data(training_path)
             self.test_data = self.load_raw_data(test_path)
 
-            print(self.train_data[0].__str__())
+            #print(self.train_data[0].__str__())
             self.preprocessing(self.train_data)
             self.preprocessing(self.test_data)
 
@@ -95,18 +105,13 @@ class Dataset(object):
     def preprocessing(self, data):
         length = len(data)
         for i, sample in enumerate(data):
-            print(sample.text)
-            print(sample.aspect)
-            # 1. tokenize && pos tagging
-            # sample.words, sample.pos_tags = nlp_helper.pos_tag(sample.text)
-            nlp_parsed_obj = self.nlp_helper(sample.text)
+
+            nlp_parsed_obj = NLP_HELPER(sample.text)
             sample.words, sample.pos_tags = list(map(list, zip(
                 *[(word.text, word.xpos) for sent in nlp_parsed_obj.sentences for word in sent.words])))
-            # 2. get aspect-dependent words
 
             aspect_term = sample.aspect.split(' ')[-1]
             sample.words, idx, aspect_term = self.format_hashstring(sample.words, aspect_term)
-            sample.aspect = aspect_term
             tmp_text = str.replace(sample.text, '##', aspect_term)
             dependencies = [(dep_edge[1], dep_edge[0].id, dep_edge[2].id)
                             for sent in nlp_parsed_obj.sentences for dep_edge in sent.dependencies]
@@ -116,21 +121,9 @@ class Dataset(object):
             
             print(f'progress: {round(((i+1) / length * 100), 2)}% --- {i}')
 
-            if i > 100:
-                break
+            # if i > 100:
+            #     break
             #break
-
-    def direction_dependent(self, temp_dict, word, n):
-        selected_words = []
-        if word not in temp_dict.keys():
-            return []
-        else:
-            tmp_list = temp_dict[word]
-            selected_words.extend(tmp_list)
-            if n > 1:
-                for w in tmp_list:
-                    selected_words.extend(self.direction_dependent(temp_dict, w, n - 1))
-        return selected_words
 
     def format_hashstring(self, tokens: List[str], aspect: str) -> Tuple[List[str], int, str]:
         # fix malformed hashwords, e.g. '*##', '##*', '*##*'
@@ -191,6 +184,18 @@ class Dataset(object):
     def get_aspect_labels(self):
         return list(set([s.aspect_cluster for s in self.train_data]))
 
+    def direction_dependent(self, temp_dict, word, n):
+        selected_words = []
+        if word not in temp_dict.keys():
+            return []
+        else:
+            tmp_list = temp_dict[word]
+            selected_words.extend(tmp_list)
+            if n > 1:
+                for w in tmp_list:
+                    selected_words.extend(self.direction_dependent(temp_dict, w, n - 1))
+        return selected_words
+
     def get_dependent_words(self, idx, dependent_results, words, pos_tags, text, n=2, window_size=0):
         
         #dependent_results = dependent_parse(text)
@@ -226,8 +231,7 @@ class Dataset(object):
         result = list(set(result))
         result.sort()
 
-        #print("!!!!!!!--->> " + " ".join(pos_tags))
-        print("!!!!!!!--->> " + " ".join([pos_tags[i-1] for i in result]))
+        #print("!!!!!!!--->> " + " ".join([pos_tags[i-1] for i in result]))
 
         return [words[i-1] for i in result], [pos_tags[i-1] for i in result], dependent_results
 
