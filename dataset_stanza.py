@@ -116,7 +116,8 @@ class Dataset(object):
             
             print(f'progress: {round(((i+1) / length * 100), 2)}% --- {i}')
 
-            break
+            if i > 100:
+                break
             #break
 
     def direction_dependent(self, temp_dict, word, n):
