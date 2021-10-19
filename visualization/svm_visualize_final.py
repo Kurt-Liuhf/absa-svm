@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 from sklearn import svm, datasets
-from dataset import *
+from dataset_stanza import *
 from search_feature_comb import *
 from matplotlib.backends.backend_pdf import PdfPages
 

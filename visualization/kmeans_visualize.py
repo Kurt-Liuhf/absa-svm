@@ -6,11 +6,10 @@ import numpy as np
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 from sklearn import svm, datasets
-from dataset import *
+from dataset_stanza import *
+
 from search_feature_comb import *
 from matplotlib.backends.backend_pdf import PdfPages
-
-
 
 def make_meshgrid(x, y, h=.02):
     """Create a mesh of points to plot in
@@ -43,7 +42,10 @@ def plot_contours(ax, clf, xx, yy, **params):
     yy: meshgrid ndarray
     params: dictionary of params to pass to contourf, optional
     """
-    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+    X = np.c_[xx.ravel(), yy.ravel()]
+    print(X)
+    print(X.shape)
+    Z = clf.predict(X)
     Z = Z.reshape(xx.shape)
     out = ax.contourf(xx, yy, Z, **params)
     return out
@@ -51,7 +53,7 @@ def plot_contours(ax, clf, xx, yy, **params):
 
 # import some data to play with
 # iris = datasets.load_iris()
-base_dir = 'datasets/rest/'
+base_dir = '../datasets/rest/'
 data = Dataset(base_dir, is_preprocessed=True)
 
 k = 10  # number of clusters
@@ -78,7 +80,10 @@ plt.subplots_adjust(wspace=0.4, hspace=0.4)
 
 X0, X1 = np.array(x_decompos), np.array(y_decompos)
 xx, yy = make_meshgrid(X0, X1)
-
+# print(xx)
+# print(xx.shape)
+# print(yy)
+# print(yy.shape)
 
 
 for clf, title, ax in zip(models, titles, sub.flatten()):

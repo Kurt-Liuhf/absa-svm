@@ -2,7 +2,7 @@ import stanza
 import os
 from file_utils import *
 import pickle
-from cluster_utils import *
+from cluster_utils import Cluster, AspectCluster, WordsCluster
 from chi import CHI
 from typing import List, Tuple
 
@@ -27,10 +27,11 @@ def word_cluster(dataset):
     wc.generate_vector()
 
 def chi_calculation(dataset, ratio):
+    print(os.getcwd())
     stopwords = stop_words()
     chi_cal = CHI([" ".join(s.words) for s in dataset.train_data],
               [s.aspect_cluster for s in dataset.train_data],
-              stop_words())
+              stopwords)
 
     chi_dict = {}
     for aspect_cluster, feature_list in chi_cal.chi_dict.items():
@@ -61,7 +62,6 @@ class Dataset(object):
         self.base_dir = base_dir
         self.train_data = None
         self.test_data = None
-
         if not is_preprocessed:
             global NLP_HELPER
             NLP_HELPER = load_stanza()
@@ -84,7 +84,10 @@ class Dataset(object):
             self.save_as_pickle(base_dir, 'parsed_data', '_parsed_train.plk', '_parsed_test.plk', self.train_data, self.test_data)
             self.save_as_txt(base_dir, 'parsed_data', '_parsed_train.txt', '_parsed_test.txt', self.train_data, self.test_data)
         else:
-            pass
+            training_path = os.path.join(base_dir, 'parsed_data', '_parsed_train.plk')
+            test_path = os.path.join(base_dir, 'parsed_data', '_parsed_test.plk')
+            self.load_preprocessed_data(training_path, test_path)
+            chi_calculation(self, ratio)
 
     def load_stanza(self):
         stanza.download('en')
@@ -98,55 +101,63 @@ class Dataset(object):
             data.append(Sample(lines[i * 3], lines[i * 3 + 1], int(lines[i * 3 + 2])))
         return data
 
-    def load_preprocessed_data(self, training_path, test_path):
+    def load_preprocessed_data(self, training_path, test_path): 
         self.train_data = pickle.load(open(training_path, 'rb'))
         self.test_data = pickle.load(open(test_path, 'rb'))
-    
+
+    def format_hashstring(self, text: str, aspect: str) -> Tuple[List[str], str]:
+        # fix malformed hashwords, e.g. '*##', '##*', '*##*', and if aspect has multiple terms, replace ## with aspects
+        tokens = text.split(' ')
+        idx = [i for i, token in enumerate(tokens) if '##' in token][0]
+        hashwords = tokens[idx]
+        hashwords = [w if w else "'" for w in hashwords.split("'")]
+        tokens[idx] = '##'
+        if len(hashwords) > 1:
+            tokens = [y for x in tokens for y in ([x] if x != '##' else hashwords)]
+        tokens = [t if '##' not in t else '##' for t in tokens]
+        hashwords = [w for w in hashwords if w != "'"][0]
+        # idx = tokens.index('##')
+        aspect_trunc = ''
+        # fix truncated aspect
+        if len(hashwords) > 2:
+            if hashwords.startswith('#'): # "##*"
+                aspect_trunc = hashwords.split('##')[1]
+                aspect = aspect + aspect_trunc
+            elif hashwords.endswith('#'): # "*##"
+                aspect_trunc = hashwords.split('##')[0] 
+                aspect = aspect_trunc + aspect
+            else: # "*##*"
+                aspect_trunc = hashwords.split('##') 
+                aspect = aspect.join(aspect_trunc)
+        # replace '##' with aspects (single or multi)
+        aspects = aspect.split(' ')
+        tokens = [y for x in tokens for y in ([x] if x != '##' else aspects)]
+        # if len(aspects) > 1:
+        #     idx = idx + len(aspects) - 1
+        return tokens, aspect
+        
     def preprocessing(self, data):
         length = len(data)
         for i, sample in enumerate(data):
-
-            nlp_parsed_obj = NLP_HELPER(sample.text)
+            # print(i*3)
+            # print(sample.text)
+            # print(sample.aspect)
+            tokens, sample.aspect = self.format_hashstring(sample.text, sample.aspect)
+            text = ' '.join(tokens)
+            # print(tokens)
+            # print(sample.aspect)
+            nlp_parsed_obj = NLP_HELPER(text)
             sample.words, sample.pos_tags = list(map(list, zip(
                 *[(word.text, word.xpos) for sent in nlp_parsed_obj.sentences for word in sent.words])))
-
-            aspect_term = sample.aspect.split(' ')[-1]
-            sample.words, idx, aspect_term = self.format_hashstring(sample.words, aspect_term)
-            tmp_text = str.replace(sample.text, '##', aspect_term)
+            # print(sample.words)
+            idx = sample.words.index(sample.aspect.split(' ')[0])
+            #tmp_text = str.replace(sample.text, '##', sample.aspect)
             dependencies = [(dep_edge[1], dep_edge[0].id, dep_edge[2].id)
                             for sent in nlp_parsed_obj.sentences for dep_edge in sent.dependencies]
             sample.dependent_words, sample.dependent_pos_tags, _ = self.get_dependent_words(
-                idx, dependencies, sample.words, sample.pos_tags, tmp_text, n=3, window_size=5)
-            #print(sample)
-            
-            print(f'progress: {round(((i+1) / length * 100), 2)}% --- {i}')
+                idx, dependencies, sample.words, sample.pos_tags, text, n=3, window_size=5)
+            print(f'progress: {round(((i+1) / length * 100), 2)}% --- {i*3}')
 
-            # if i > 100:
-            #     break
-            #break
-
-    def format_hashstring(self, tokens: List[str], aspect: str) -> Tuple[List[str], int, str]:
-        # fix malformed hashwords, e.g. '*##', '##*', '*##*'
-        try:
-            idx = [i for i, tokens in enumerate(tokens) if '##' in tokens][0]
-            hashword = tokens[idx]
-            tokens[idx] = '##'
-        except IndexError as e:
-            print(e)
-            idx = None
-            hashword = None
-        aspect_trunc = ''
-        if len(hashword) > 2:
-            if hashword.startswith('#'): # "##*"
-                aspect_trunc = hashword.split('##')[1]
-                aspect = aspect + aspect_trunc
-            elif hashword.endswith('#'): # "*##"
-                aspect_trunc = hashword.split('##')[0] 
-                aspect = aspect_trunc + aspect
-            else: # "*##*"
-                aspect_trunc = hashword.split('##') 
-                aspect = aspect.join(aspect_trunc) 
-        return tokens, idx, aspect
 
     def data_from_aspect(self, aspect_cluster, is_sampling=True):
         pos = 0

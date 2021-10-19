@@ -1,6 +1,6 @@
 from sklearn.cluster import KMeans
 import numpy as np
-from dataset import *
+from dataset_stanza import *
 from file_utils import *
 import pickle
 import os
