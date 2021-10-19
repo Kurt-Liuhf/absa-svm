@@ -260,7 +260,7 @@ class LexiconFeatureExtractor(object):
         return np.concatenate(all_vectors, axis=1)
 
 
-from dataset import Dataset
+#from dataset import Dataset
 if __name__ == '__main__':
     # train_data = Dataset('../dataset/data_res/Restaurants_Train.txt')
     # print(train_data.num_instance())

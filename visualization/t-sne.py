@@ -6,7 +6,7 @@ import os
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import pandas as pd
-from dataset import *
+from dataset_stanza import *
 
 base_dir = 'datasets/rest/'
 data = Dataset(base_dir, is_preprocessed=True)
