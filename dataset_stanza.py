@@ -85,8 +85,8 @@ class Dataset(object):
             self.save_as_pickle(base_dir, 'parsed_data', '_parsed_train.plk', '_parsed_test.plk', self.train_data, self.test_data)
             self.save_as_txt(base_dir, 'parsed_data', '_parsed_train.txt', '_parsed_test.txt', self.train_data, self.test_data)
         else:
-            training_path = os.path.join('../', base_dir, 'parsed_data', '_parsed_train.plk')
-            test_path = os.path.join('../', base_dir, 'parsed_data', '_parsed_test.plk')
+            training_path = os.path.join(base_dir, 'parsed_data', '_parsed_train.plk')
+            test_path = os.path.join(base_dir, 'parsed_data', '_parsed_test.plk')
             self.load_preprocessed_data(training_path, test_path)
             chi_calculation(self, ratio)
 
