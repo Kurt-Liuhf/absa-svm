@@ -8,10 +8,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from dataset_stanza import *
 
+print(os.getcwd())
+
 base_dir = 'datasets/rest/'
 data = Dataset(base_dir, is_preprocessed=True)
 
-k = 5  # number of clusters
+k = 10  # number of clusters
 ac, vectors = aspect_cluster(data, k)
 
 # use TSNE for visualization
