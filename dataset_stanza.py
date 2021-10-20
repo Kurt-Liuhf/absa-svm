@@ -16,11 +16,11 @@ def load_stanza():
     
 def aspect_cluster(dataset, n_clusters=20):
     ac = AspectCluster(dataset, n_clusters)
-    labels, vectors = ac.fit()
+    _, vectors = ac.fit()
     ac.predict()
     ac.save_cluster_result()
 
-    return ac, vectors, labels
+    return ac, vectors
 
 def word_cluster(dataset):
     wc = WordsCluster(dataset)
