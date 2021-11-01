@@ -102,8 +102,7 @@ class Dataset(object):
             text = lines[i * 3]
             aspect = lines[i * 3 + 1]
             polarity = int(lines[i * 3 + 2])       
-            text_formatted = format_hashstring(text, aspect) 
-            data.append(Sample(text_formatted, aspect, polarity, i))
+            data.append(Sample(text, aspect, polarity, i))
         return data
 
     def load_preprocessed_data(self, training_path, test_path): 
@@ -285,7 +284,7 @@ class Dataset(object):
 
 
 class Sample(object):
-    def __init__(self, text, aspect, polarity, sample_id):
+    def __init__(self, text, aspect, polarity, sample_id=0):
         self.id = sample_id
         self.text = text
         self.aspect = aspect
