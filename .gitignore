@@ -5,6 +5,7 @@ _*
 stanfordnlp_resources
 model
 __*
+*.ini
 datasets/rest/aspect_cluster/test/cluster_*
 datasets/rest/aspect_cluster/train/cluster_*
 datasets/laptops/aspect_cluster/test/cluster_*
