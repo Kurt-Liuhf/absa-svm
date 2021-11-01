@@ -99,7 +99,11 @@ class Dataset(object):
         data = []
         lines = read_as_list(path)
         for i in range(len(lines) // 3):
-            data.append(Sample(lines[i * 3], lines[i * 3 + 1], int(lines[i * 3 + 2])))
+            text = lines[i * 3]
+            aspect = lines[i * 3 + 1]
+            polarity = int(lines[i * 3 + 2])       
+            text_formatted = format_hashstring(text, aspect) 
+            data.append(Sample(text_formatted, aspect, polarity, i))
         return data
 
     def load_preprocessed_data(self, training_path, test_path): 
@@ -281,7 +285,8 @@ class Dataset(object):
 
 
 class Sample(object):
-    def __init__(self, text, aspect, polarity):
+    def __init__(self, text, aspect, polarity, sample_id):
+        self.id = sample_id
         self.text = text
         self.aspect = aspect
         self.polarity = polarity
