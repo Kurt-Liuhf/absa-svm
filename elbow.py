@@ -11,12 +11,16 @@ base_dir = 'datasets/rest/'
 data = Dataset(base_dir, is_preprocessed=True)
 
 distortions = []
-K = range(3, 50)
+min_k = 3
+max_k = 50
+K = range(min_k, max_k)
 for k in K:
+    print(f'cluster: {k} / {max_k}')
     ac, vectors = aspect_cluster(data, k)
     dist = sum(np.min(cdist(vectors, ac.kmeans.cluster_centers_, 'cosine'), axis=1)) / vectors.shape[0]
     distortions.append(dist)
 
+print(' --- DONE ELBOW ---')
 plt.plot(K, distortions, 'bx-')
 plt.xlabel('k')
 plt.ylabel('Distortion')
