@@ -2,7 +2,7 @@ import stanza
 import os
 from file_utils import *
 import pickle
-from cluster_utils import Cluster, AspectCluster, WordsCluster
+from cluster_utils import *
 from chi import CHI
 from typing import List, Tuple
 
