@@ -31,16 +31,18 @@ def cal_acc(result_dir):
 
 
 if __name__ == '__main__':
-    # result_dict = cal_acc('../svm-result/temp-results')
-    result_dict = cal_acc('../svm-result/svm-result25')
-    # result_dict = cal_acc('svm-result18')
+    
+    #result_dict = cal_acc('../svm-result/svm-result25')
+    result_dict = cal_acc('datasets/rest/tmp_optimized_result')
+    #result_dict = cal_acc('datasets/rest/optimal_results/svm-results-k20')
     correct = sum(result_dict['correct'])
     total = sum(result_dict['total'])
     f_scores = result_dict['f1']
-    print(f_scores)
+    print(f'f_scores: {f_scores}')
     f1 = 0
     for num_sample, chunk_f in zip(result_dict['total'], f_scores):
-        f1 += num_sample / 1120 * chunk_f
+        #f1 += num_sample / 1120 * chunk_f
+        f1 += num_sample / total * chunk_f
     print('correct / total: %d / %d' % (correct, total))
     print('Acc: %.5f' % (correct / total))
     print('F1: %.5f' % f1)
