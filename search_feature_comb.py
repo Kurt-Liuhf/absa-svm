@@ -131,7 +131,7 @@ def main():
     best_accs = [0 for _ in range(0, 26)]
     print(chi_ratios)
     num_rounds = 2000
-    for aspect_id in range(0, 19):
+    for aspect_id in range(0, 20): # NOTE: CHANGE THIS RANGE TO REFLECT NUMBER OF CLUSTERS
         ht = HyperoptTunerLibSVM()
         # ht1 = HyperoptTunerLibSVM()
         for bf in bow_features:
@@ -176,7 +176,7 @@ def main():
                     print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
                           (aspect_id, len(train_data), len(test_data)))
                     x_train, y_train, x_test, y_test = generate_vectors(train_data, test_data, bf)
-
+                    
 
 if __name__ == '__main__':
     main()

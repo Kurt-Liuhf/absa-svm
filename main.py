@@ -73,7 +73,7 @@ def lexicons_features_vectors(tokens, pos_tags, dependent_words=None):
     for words, tags, dw in zip(tokens, pos_tags, dependent_words):
         new_words = []
         new_tags = []
-        tmp_dw_set = set(dw.split())
+        #tmp_dw_set = set(dw.split())
         for w, t in zip(words, tags):
             # if w in tmp_dw_set:
             new_words.append(w)
@@ -100,7 +100,7 @@ def main():
     print(aspect_labels)
     y_preds = []
     y_true = []
-    for aspect_id in range(0, 10):
+    for aspect_id in range(0, 20):  # NOTE: CHANGE THIS RANGE TO REFLECT NUMBER OF CLUSTERS
         train_data, test_data = data.data_from_aspect(aspect_id)
         print("aspect_cluster_id: %d, #train_instance = %d, #test_instance = %d" %
               (aspect_id, len(train_data), len(test_data)))
