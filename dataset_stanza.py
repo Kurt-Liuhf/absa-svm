@@ -6,8 +6,6 @@ from cluster_utils import *
 from chi import CHI
 from typing import List, Tuple
 
-import faulthandler
-
 NLP_HELPER = None
 
 def load_stanza():
@@ -22,8 +20,8 @@ def aspect_cluster(dataset, n_clusters=20):
 
     return ac, vectors
 
-def word_cluster(dataset):
-    wc = WordsCluster(dataset)
+def word_cluster(dataset, n_clusters=20):
+    wc = WordsCluster(dataset, n_clusters)
     wc.generate_vector()
     return wc
 
@@ -76,7 +74,6 @@ class Dataset(object):
             self.preprocessing(self.test_data)
 
             print('attempt aspect cluster')
-            faulthandler.enable()
             aspect_cluster(self)
             print('attempt word cluster')
             word_cluster(self)
