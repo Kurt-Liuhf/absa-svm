@@ -33,7 +33,8 @@ def cal_acc(result_dir):
 if __name__ == '__main__':
     
     #result_dict = cal_acc('../svm-result/svm-result25')
-    result_dict = cal_acc('datasets/rest/tmp_optimized_result')
+    #result_dict = cal_acc('datasets/rest/tmp_optimized_result')
+    result_dict = cal_acc('datasets/rest/optimal_results/rounds_10')
     #result_dict = cal_acc('datasets/rest/optimal_results/svm-results-k20')
     correct = sum(result_dict['correct'])
     total = sum(result_dict['total'])
