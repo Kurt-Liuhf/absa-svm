@@ -4,7 +4,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
-from dataset_stanza import *
+from dataset_depparse import *
 import numpy as np
 
 

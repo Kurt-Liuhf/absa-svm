@@ -6,7 +6,7 @@ import os
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import pandas as pd
-from dataset_stanza import *
+from dataset_depparse import *
 
 print(os.getcwd())
 

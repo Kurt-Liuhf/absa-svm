@@ -1,4 +1,4 @@
-from dataset_stanza import *
+from dataset_depparse import *
 from file_utils import *
 from sklearn.decomposition import TruncatedSVD
 from sklearn.pipeline import make_pipeline

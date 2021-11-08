@@ -4,7 +4,7 @@ from sklearn import metrics
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial.distance import cdist
-from dataset_stanza import *
+from dataset_depparse import *
 
 
 base_dir = 'datasets/rest/'

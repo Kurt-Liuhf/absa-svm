@@ -6,7 +6,7 @@ import configparser
 from typing import Union, Tuple, List
 import openai
 
-from dataset_stanza import *
+from dataset_depparse import *
 from file_utils import * 
 
 import nltk

@@ -1,7 +1,7 @@
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import NearestNeighbors
 import numpy as np
-from dataset_stanza import *
+from dataset_depparse import *
 from sklearn.metrics import silhouette_score
 from hyperopt import hp, tpe, STATUS_OK, fmin
 

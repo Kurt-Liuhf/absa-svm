@@ -1,5 +1,5 @@
 from collections import Counter
-from dataset_stanza import *
+from dataset_depparse import *
 from file_utils import *
 
 

@@ -1,4 +1,4 @@
-from dataset_stanza import *
+from dataset_depparse import *
 from file_utils import *
 from sklearn.feature_extraction.text import TfidfVectorizer
 from lexicon_features import *
