@@ -4,8 +4,13 @@ import pickle
 from cluster_utils import *
 from chi import CHI
 
+import stanza
 
-def preprocessing(data):
+def load_stanza():
+    stanza.download('en')
+    return stanza.Pipeline(lang='en', tokenize_pretokenized=True)
+
+def _preprocessing(data):
     nlp_helper = StanfordNLP()
 
     for sample in data:
@@ -16,6 +21,82 @@ def preprocessing(data):
         tmp_text = str.replace(sample.text, '##', aspect_term)
         sample.dependent_words, sample.dependent_pos_tags, _ = nlp_helper.get_dependent_words(sample.words, sample.pos_tags, tmp_text, n=3, window_size=5)
         print(sample)
+
+
+def preprocessing(data):
+
+    nlp_helper = load_stanza()
+    
+    for i, sample in enumerate(data):
+        # 1. tokenize && pos tagging
+        nlp_parsed_obj = nlp_helper(sample.text)
+        sample.words, sample.pos_tags = list(map(list, zip(
+            *[(word.text, word.xpos) for sent in nlp_parsed_obj.sentences for word in sent.words])))
+
+        # 2. get aspect-dependent words
+        aspect_term = sample.aspect.split(' ')[-1]
+
+        tmp_text = str.replace(sample.text, '##', aspect_term)
+
+        nlp_parsed_obj = nlp_helper(tmp_text)
+        dependencies = [(dep_edge[1], dep_edge[0].id, dep_edge[2].id)
+            for sent in nlp_parsed_obj.sentences for dep_edge in sent.dependencies]
+        sample.dependent_words, sample.dependent_pos_tags, _ = get_dependent_words(
+            dependencies, sample.words, sample.pos_tags, n=3, window_size=5)
+        print(f'progress: {round(((i+1) / len(data) * 100), 2)}% --- {i*3}')
+
+
+def direction_dependent(temp_dict, word, n):
+    selected_words = []
+    if word not in temp_dict.keys():
+        return []
+    else:
+        tmp_list = temp_dict[word]
+        selected_words.extend(tmp_list)
+        if n > 1:
+            for w in tmp_list:
+                selected_words.extend(direction_dependent(temp_dict, w, n - 1))
+
+    return selected_words
+
+def get_dependent_words(dependencies, words, pos_tags, n=2, window_size=0):
+    # locate the word index of `word`
+    idx = [i for i, token in enumerate(words) if '##' in token][0]
+    dependent_results = dependencies
+    in_dict = {}
+    out_dict = {}
+    for dr in dependent_results:
+        # print(dr[0])
+        src_wid = dr[1]    # source wid
+        tag_wid = dr[2]    # target wid
+        out_dict.setdefault(src_wid, [])
+        in_dict.setdefault(tag_wid, [])
+
+        out_dict[src_wid].append(tag_wid)
+        in_dict[tag_wid].append(src_wid)
+
+    forwards = direction_dependent(out_dict, idx + 1, n)
+    backwards = direction_dependent(in_dict, idx + 1, n)
+
+    result = []
+    result.extend(forwards)
+    result.extend(backwards)
+
+    # add window-size words
+    if window_size != 0:
+        # right side
+        for i in range(idx + 2, idx + 2 + window_size, 1):
+            if i > len(words):
+                break
+            result.append(i)
+        for i in range(idx + 1 - window_size, idx + 1, 1):
+            if i > 1:
+                result.append(i)
+    result = list(set(result))
+    result.sort()
+
+    print("!!!!!!!--->> " + " ".join(pos_tags))
+    return [words[i-1] for i in result], [pos_tags[i-1] for i in result], dependent_results
 
 
 def aspect_cluster(dataset, n_clusters=20):
@@ -73,6 +154,8 @@ class Dataset(object):
             self.test_data = self.load_raw_data(test_path)
             preprocessing(self.train_data)
             preprocessing(self.test_data)
+            # _preprocessing(self.train_data)
+            # _preprocessing(self.test_data)
             aspect_cluster(self)
             word_cluster(self)
             self.save_as_pickle()
