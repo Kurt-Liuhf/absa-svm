@@ -13,6 +13,8 @@ from sklearn.preprocessing import Normalizer
 from sklearn.preprocessing import scale
 from hyperopt_libsvm import HyperoptTunerLibSVM
 import time
+from pathlib import Path
+
 
 
 REST_DIR = 'datasets/rest/'
@@ -130,7 +132,8 @@ def main():
     is_sampling = [True]
     best_accs = [0 for _ in range(0, 26)]
     print(chi_ratios)
-    num_rounds = 2000
+    #num_rounds = 2000 # NOTE: CHANGE NO. ROUNDS
+    num_rounds = 10
     for aspect_id in range(0, 20): # NOTE: CHANGE THIS RANGE TO REFLECT NUMBER OF CLUSTERS
         ht = HyperoptTunerLibSVM()
         # ht1 = HyperoptTunerLibSVM()
@@ -157,7 +160,8 @@ def main():
 
                         if ht.best_acc > best_accs[aspect_id]:
                             best_accs[aspect_id] = ht.best_acc
-                            with open('svm_' + str(aspect_id), 'w') as f:
+                            Path(f"{REST_DIR}optimal_results/rounds_{num_rounds}/").mkdir(parents=True, exist_ok=True)
+                            with open(f"{REST_DIR}optimal_results/rounds_{num_rounds}/svm_{str(aspect_id)}", 'w') as f:
                                 f.write("################################################################\n")
                                 f.write('chi_ratio: ' + str(cr) + '\n')
                                 # f.write('cr: ' + str(cr) + '\n')
