@@ -57,7 +57,7 @@ def chi_calculation(dataset, ratio):
                 sample.bow_tags.append(w)
 
 class Dataset(object):
-    def __init__(self, base_dir, is_preprocessed, ratio=0.3):
+    def __init__(self, base_dir, is_preprocessed, n_clusters=20, ratio=0.3):
         self.base_dir = base_dir
         self.train_data = None
         self.test_data = None
@@ -74,9 +74,9 @@ class Dataset(object):
             self.preprocessing(self.test_data)
 
             print('attempt aspect cluster')
-            aspect_cluster(self)
+            aspect_cluster(self, n_clusters)
             print('attempt word cluster')
-            word_cluster(self)
+            word_cluster(self, n_clusters)
 
             print('save files...')
             self.save_as_pickle(base_dir, 'parsed_data', 'parsed_train.plk', 'parsed_test.plk', self.train_data, self.test_data)

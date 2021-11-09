@@ -108,10 +108,10 @@ def aspect_cluster(dataset, n_clusters=20):
     return ac, vectors
 
 
-def word_cluster(dataset):
-    wc = WordsCluster(dataset)
+def word_cluster(dataset, n_clusters=20):
+    wc = WordsCluster(dataset, n_clusters)
     wc.generate_vector()
-
+    return wc
 
 def chi_calculation(dataset, ratio):
     stopwords = stop_words()
@@ -145,7 +145,7 @@ def chi_calculation(dataset, ratio):
 
 
 class Dataset(object):
-    def __init__(self, base_dir, is_preprocessed, ratio=0.3):
+    def __init__(self, base_dir, is_preprocessed, n_clusters=20, ratio=0.3):
         self.base_dir = base_dir
         if not is_preprocessed:
             training_path = os.path.join(base_dir, 'train.txt')
@@ -156,8 +156,8 @@ class Dataset(object):
             preprocessing(self.test_data)
             # _preprocessing(self.train_data)
             # _preprocessing(self.test_data)
-            aspect_cluster(self)
-            word_cluster(self)
+            aspect_cluster(self, n_clusters)
+            word_cluster(self, n_clusters)
             self.save_as_pickle()
             self.save_as_txt()
             self.save_as_tmp()
