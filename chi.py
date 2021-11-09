@@ -46,6 +46,11 @@ class CHI(object):
         return score
 
     def calculate_chi(self):
+        ''' returns the chi calculations for each word in the data; importance of each word in the svm relative to its importance in every other svm.
+            chi_dict = {
+                cluster_id: [(word, chi-score)] // currently ascending order
+            }
+        '''
         print("begin calculating chi ...")
         chi_dict = {}  # key-label: value-dict
         label_word_counter, word_counter = self._label_word_count()
@@ -70,5 +75,5 @@ if __name__ == '__main__':
     chi = CHI([" ".join(s.words) for s in data.train_data],
               [s.aspect_cluster for s in data.train_data],
               stop_words())
-    print(chi.chi_dict[0])
-    print(len(chi.chi_dict[0]))
+    # print(chi.chi_dict[0])
+    # print(len(chi.chi_dict[0]))

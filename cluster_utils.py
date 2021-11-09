@@ -141,6 +141,7 @@ class WordsCluster(Cluster):
             self.cluster_models[cluster_id] = tmp_kmeans
 
     def generate_vector(self):
+        ''' WORD EMBEDDING FEATURES MADE HERE '''
         # for training set
         train_vectors = []
         for sample in self.dataset.train_data:
