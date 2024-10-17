@@ -1,0 +1,75 @@
+[2024-06-05 12:40:55,849] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-05 12:41:01] (2.4.1) PyABSA(2.4.1): If your code crashes on Colab, please use the GPU runtime. Then run "pip install pyabsa[dev] -U" and restart the kernel.
+Or if it does not work, you can use v1.x versions, e.g., pip install pyabsa<2.0 -U
+
+
+
+
+WARNING: When you fails to load a checkpoint, e.g., Unexpected key(s),
+Try to downgrade transformers<=4.29.0.
+
+
+
+
+/home/bld/anaconda3/envs/mezo/lib/python3.9/multiprocessing/pool.py:265: ResourceWarning: unclosed running multiprocessing pool <multiprocessing.pool.Pool state=RUN pool_size=1>
+  _warn(f"unclosed running multiprocessing pool {self!r}",
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+/home/bld/anaconda3/envs/mezo/lib/python3.9/site-packages/transformers/convert_slow_tokenizer.py:454: UserWarning: The sentencepiece tokenizer that you are converting to a fast tokenizer uses the byte fallback option which is not implemented in the fast tokenizers. In practice this means that the fast version of the tokenizer can produce unknown tokens whereas the sentencepiece version would have converted these unknown tokens into a sequence of byte tokens matching the original piece of text.
+  warnings.warn(
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Some weights of the model checkpoint at microsoft/deberta-v3-base were not used when initializing DebertaV2Model: ['mask_predictions.LayerNorm.bias', 'mask_predictions.dense.weight', 'mask_predictions.classifier.weight', 'lm_predictions.lm_head.LayerNorm.bias', 'lm_predictions.lm_head.dense.bias', 'mask_predictions.classifier.bias', 'lm_predictions.lm_head.dense.weight', 'mask_predictions.dense.bias', 'mask_predictions.LayerNorm.weight', 'lm_predictions.lm_head.bias', 'lm_predictions.lm_head.LayerNorm.weight']
+- This IS expected if you are initializing DebertaV2Model from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing DebertaV2Model from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[2024-06-05 12:41:11] (2.4.1) Please specify the task code, e.g. from pyabsa import TaskCodeOption
+[2024-06-05 12:41:12] (2.4.1) ********** Available APC model checkpoints for Version:2.4.1 (this version) **********
+[2024-06-05 12:41:12] (2.4.1) ********** Available APC model checkpoints for Version:2.4.1 (this version) **********
+[2024-06-05 12:41:12] (2.4.1) Downloading checkpoint:english 
+[2024-06-05 12:41:12] (2.4.1) Notice: The pretrained model are used for testing, it is recommended to train the model on your own custom datasets
+[2024-06-05 12:41:12] (2.4.1) Checkpoint already downloaded, skip
+[2024-06-05 12:41:12] (2.4.1) Load sentiment classifier from checkpoints/APC_ENGLISH_CHECKPOINT/fast_lsa_t_v2_English_acc_82.21_f1_81.81
+[2024-06-05 12:41:12] (2.4.1) config: checkpoints/APC_ENGLISH_CHECKPOINT/fast_lsa_t_v2_English_acc_82.21_f1_81.81/fast_lsa_t_v2.config
+[2024-06-05 12:41:12] (2.4.1) state_dict: checkpoints/APC_ENGLISH_CHECKPOINT/fast_lsa_t_v2_English_acc_82.21_f1_81.81/fast_lsa_t_v2.state_dict
+[2024-06-05 12:41:12] (2.4.1) model: None
+[2024-06-05 12:41:12] (2.4.1) tokenizer: checkpoints/APC_ENGLISH_CHECKPOINT/fast_lsa_t_v2_English_acc_82.21_f1_81.81/fast_lsa_t_v2.tokenizer
+[2024-06-05 12:41:12] (2.4.1) Set Model Device: cuda:6
+[2024-06-05 12:41:12] (2.4.1) Device Name: NVIDIA GeForce RTX 4090
+preparing apc inference dataloader:   0%|          | 0/1336 [00:00<?, ?it/s]preparing apc inference dataloader:  11%|█         | 147/1336 [00:00<00:00, 1469.21it/s]preparing apc inference dataloader:  24%|██▎       | 315/1336 [00:00<00:00, 1590.17it/s]preparing apc inference dataloader:  36%|███▋      | 487/1336 [00:00<00:00, 1646.46it/s]preparing apc inference dataloader:  49%|████▉     | 659/1336 [00:00<00:00, 1674.63it/s]preparing apc inference dataloader:  62%|██████▏   | 831/1336 [00:00<00:00, 1688.09it/s]preparing apc inference dataloader:  75%|███████▌  | 1002/1336 [00:00<00:00, 1693.75it/s]preparing apc inference dataloader:  88%|████████▊ | 1178/1336 [00:00<00:00, 1714.13it/s]preparing apc inference dataloader: 100%|██████████| 1336/1336 [00:00<00:00, 1680.52it/s]
+run inference:   0%|          | 0/21 [00:00<?, ?it/s]run inference:   5%|▍         | 1/21 [00:01<00:32,  1.64s/it]run inference:  10%|▉         | 2/21 [00:02<00:26,  1.40s/it]run inference:  14%|█▍        | 3/21 [00:04<00:23,  1.33s/it]run inference:  19%|█▉        | 4/21 [00:05<00:21,  1.29s/it]run inference:  24%|██▍       | 5/21 [00:06<00:20,  1.27s/it]run inference:  29%|██▊       | 6/21 [00:07<00:18,  1.26s/it]run inference:  33%|███▎      | 7/21 [00:09<00:17,  1.25s/it]run inference:  38%|███▊      | 8/21 [00:10<00:16,  1.25s/it]run inference:  43%|████▎     | 9/21 [00:11<00:14,  1.24s/it]run inference:  48%|████▊     | 10/21 [00:12<00:13,  1.24s/it]run inference:  52%|█████▏    | 11/21 [00:13<00:12,  1.24s/it]run inference:  57%|█████▋    | 12/21 [00:15<00:11,  1.24s/it]run inference:  62%|██████▏   | 13/21 [00:16<00:09,  1.24s/it]run inference:  67%|██████▋   | 14/21 [00:17<00:08,  1.23s/it]run inference:  71%|███████▏  | 15/21 [00:18<00:07,  1.23s/it]run inference:  76%|███████▌  | 16/21 [00:20<00:06,  1.23s/it]run inference:  81%|████████  | 17/21 [00:21<00:04,  1.23s/it]run inference:  86%|████████▌ | 18/21 [00:22<00:03,  1.23s/it]run inference:  90%|█████████ | 19/21 [00:23<00:02,  1.23s/it]run inference:  95%|█████████▌| 20/21 [00:25<00:01,  1.23s/it]run inference: 100%|██████████| 21/21 [00:26<00:00,  1.19s/it]run inference: 100%|██████████| 21/21 [00:26<00:00,  1.25s/it]
+[2024-06-05 12:41:50] (2.4.1) Total samples:1336
+[2024-06-05 12:41:50] (2.4.1) Labeled samples:1336
+[2024-06-05 12:41:50] (2.4.1) Prediction Accuracy:83.60778443113773%
+[2024-06-05 12:41:50] (2.4.1) 
+---------------------------- Classification Report ----------------------------
+
+
+[2024-06-05 12:41:50] (2.4.1)
+               precision    recall  f1-score   support
+
+    Negative     0.8050    0.7781    0.7913       329
+     Neutral     0.8716    0.8501    0.8607       607
+    Positive     0.8099    0.8625    0.8354       400
+
+    accuracy                         0.8361      1336
+   macro avg     0.8288    0.8302    0.8291      1336
+weighted avg     0.8367    0.8361    0.8360      1336
+
+[2024-06-05 12:41:50] (2.4.1) 
+---------------------------- Classification Report ----------------------------
+
+[2024-06-05 12:41:50] (2.4.1) 
+---------------------------- Confusion Matrix ----------------------------
+
+
+[2024-06-05 12:41:50] (2.4.1)
+ [[  0   0   0   0]
+ [  0 256  48  25]
+ [  0  35 516  56]
+ [  0  27  28 345]]
+[2024-06-05 12:41:50] (2.4.1) 
+---------------------------- Confusion Matrix ----------------------------
+
+Inference time (plus prepocessing):  27.450337409973145
+Inference time:  26.1774640083313

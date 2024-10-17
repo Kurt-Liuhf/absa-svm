@@ -1,0 +1,3 @@
+from Evaluation.WEvaluation.WEvaluation import WEvaluation
+from Evaluation.WEvaluation.AucWrapperEvaluation import AucWrapperEvaluation
+from Evaluation.WEvaluation.LogLossEvaluation import LogLossEvaluation
